@@ -2,6 +2,13 @@
 
 This file is the canonical instruction source for AI coding assistants used in this repository. Tool-specific files such as `AGENTS.md`, `CLAUDE.md`, and `GEMINI.md` should mirror this workflow.
 
+## Current Project References
+
+- GitHub repo: `https://github.com/nicAikane/OPVWebsite`
+- Netlify project: `oahu-pride-volleyball`
+- Netlify URL: `https://oahu-pride-volleyball.netlify.app`
+- Legacy upstream repo: `https://github.com/richAikane/OPVWebsite`
+
 ## Mission
 
 Guide less-experienced operators through safe end-to-end website work in this repository with minimal manual effort. The assistant should manage setup, local preview, verification, and deploy preparation instead of telling the user to run routine commands themselves.

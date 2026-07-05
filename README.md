@@ -2,6 +2,15 @@
 
 Oʻahu Pride Volleyball’s marketing site and Express-backed API, built with Vite, React 18, Tailwind CSS, Express, and TypeScript.
 
+## Current Ownership
+
+- GitHub repo: https://github.com/nicAikane/OPVWebsite
+- Netlify project: `oahu-pride-volleyball`
+- Netlify URL: https://oahu-pride-volleyball.netlify.app
+- Legacy upstream repo: https://github.com/richAikane/OPVWebsite
+
+The custom domain should point to the Netlify site above after DNS cutover.
+
 ## Getting started
 
 1) Install dependencies:
@@ -35,4 +44,4 @@ npm start
 
 ## Repository
 
-GitHub: https://github.com/richAikane/OPVWebsite
+GitHub: https://github.com/nicAikane/OPVWebsite

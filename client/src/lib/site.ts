@@ -25,7 +25,7 @@ export const season = {
 };
 
 export const links = {
-  home: "https://opv.netlify.app",
+  home: "https://oahu-pride-volleyball.netlify.app",
   donate:
     "https://www.zeffy.com/en-US/donation-form/season-5-oahu-pride-volleyball-league/",
   rules:

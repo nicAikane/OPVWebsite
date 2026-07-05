@@ -7,8 +7,14 @@ Use this checklist when setting up a new person to maintain the OPV website with
 1. Shared-drive access to this workspace
 2. A machine with terminal access
 3. Node and npm installed
-4. Git access if they need to commit or push changes
-5. Netlify access if they need to create deploys or publish changes
+4. GitHub access to `nicAikane/OPVWebsite` if they need to commit or push changes
+5. Netlify access to the `oahu-pride-volleyball` site in `nicAikane’s team` if they need to create deploys or publish changes
+
+## Current Project References
+
+- GitHub repo: https://github.com/nicAikane/OPVWebsite
+- Netlify site: https://oahu-pride-volleyball.netlify.app
+- Custom domain target: `oahupridevolleyball.org`
 
 ## Git Access
 
@@ -27,6 +33,8 @@ Netlify access is needed if the operator will:
 - create draft deploys or deploy previews
 - inspect deploy history or site configuration
 - publish to production
+
+The current Netlify production site for this project is `oahu-pride-volleyball`.
 
 Without Netlify access, the operator can still make and verify local changes, but someone else must handle deployment.
 
