@@ -1,0 +1,14 @@
+[build]
+# Build the client and server bundle; Netlify will publish only the static client.
+command = "npm run build"
+publish = "dist/public"
+
+# Optional: if you later add Netlify Functions, set the directory here
+# functions = "netlify/functions"
+
+[[redirects]]
+# SPA fallback so client-side routing always serves index.html
+from = "/*"
+to = "/index.html"
+status = 200
+

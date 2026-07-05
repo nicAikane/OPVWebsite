@@ -1,0 +1,145 @@
+# Replit Prompt — Final Fix (no wrap, proper spacing)
+
+You’re editing a Vite + React + Tailwind app. Fix two things in `Navigation`:
+
+1. **Space**: “Pride Mode” must never crowd the **site logo** on the left.
+2. **Single row**: Desktop nav **must never wrap** to two rows (use no-wrap + responsive padding; allow horizontal scroll if needed).
+
+Keep design, behavior, and all `data-testid`s.
+
+## What to change
+
+* Give the **logo wrapper** a right margin so there’s always space before “Pride Mode.”
+* In **Desktop Navigation** (`hidden lg:flex …`):
+
+  * Remove `w-full`.
+  * Make the links container **no-wrap** and **single row** with `flex-nowrap whitespace-nowrap`.
+  * Add `overflow-x-auto` so long link sets scroll instead of wrapping.
+  * Tighten link padding on `lg`, then expand on `xl+`.
+  * Ensure icon cluster and Linktree image never shrink or distort.
+
+## Patch (replace only the shown lines/blocks)
+
+```diff
+@@
+-          {/* Logo */}
+-          <div className="flex-shrink-0">
++          {/* Logo (add explicit right margin so Pride Mode never crowds) */}
++          <div className="flex-shrink-0 mr-6 xl:mr-10">
+             <a 
+               href="https://www.aikaneohana.com/volleyball" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               aria-label="OPV Homepage" 
+               className="block rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ring"
+               data-testid="link-home-logo"
+             >
+               <img 
+                 className="h-12 md:h-16 w-auto" 
+                 src="/opv-logo.png" 
+                 alt="Oʻahu Pride Volleyball Logo" 
+                 loading="lazy"
+               />
+             </a>
+           </div>
+ 
+-          {/* Desktop Navigation */}
+-          <div className="hidden lg:flex items-center w-full flex-nowrap gap-4">
++          {/* Desktop Navigation (no-wrap, single row, with overflow scroll) */}
++          <div className="hidden lg:flex items-center flex-nowrap gap-6">
+             {/* Pride Mode: fixed-size cluster */}
+-            <div className="pride-toggle-switch-container flex items-center shrink-0 gap-x-2 sm:gap-x-3 md:gap-x-4">
++            <div className="pride-toggle-switch-container flex items-center shrink-0 gap-x-4 lg:gap-x-5 xl:gap-x-6">
+               <span
+                 id="pride-toggle-label"
+                 className="font-semibold pride-text-animated whitespace-nowrap leading-none"
+               >
+                 Pride Mode
+               </span>
+               <label className="pride-toggle-switch">
+                 <input
+                   type="checkbox"
+                   id="prideToggle"
+                   checked={isPrideMode}
+                   onChange={togglePrideMode}
+                   aria-labelledby="pride-toggle-label"
+                   aria-label="Pride Mode"
+                   data-testid="toggle-pride-mode"
+                 />
+                 <span className="pride-switch-track">
+                   <span className="pride-switch-thumb"></span>
+                 </span>
+               </label>
+             </div>
+ 
+-            {/* Nav Links: flexible, can wrap */}
+-            <div className="flex items-center flex-1 min-w-0 flex-wrap justify-center gap-1 sm:gap-2">
++            {/* Nav Links: flexible, single-line, scroll if overflow */}
++            <div className="flex items-center flex-1 min-w-0 flex-nowrap justify-center gap-1 sm:gap-2 lg:gap-3 xl:gap-4 whitespace-nowrap overflow-x-auto">
+               {navLinks.map((link) => (
+                 <a
+                   key={link.label}
+                   href={link.href}
+                   target={link.isAnchor ? undefined : "_blank"}
+                   rel={link.isAnchor ? undefined : "noopener noreferrer"}
+-                  className="nav-link text-foreground hover:text-muted-foreground px-3 py-2 rounded-md text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
++                  className="nav-link text-foreground hover:text-muted-foreground px-2 lg:px-3 xl:px-4 py-2 rounded-md text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 shrink-0"
+                   data-testid={link.testId}
+                 >
+                   {link.label}
+                 </a>
+               ))}
+             </div>
+ 
+             {/* Social Icons: fixed-size cluster */}
+-            <div className="flex items-center shrink-0 gap-2 sm:gap-3 md:gap-4">
++            <div className="flex items-center shrink-0 gap-2 sm:gap-3 md:gap-4">
+               <a
+                 href={links.facebook}
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Follow us on Facebook"
+                 className="hover:opacity-80 transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md"
+                 data-testid="link-facebook-desktop"
+               >
+                 <FaFacebook className="h-8 w-8 text-foreground" />
+               </a>
+               <a
+                 href={links.instagram}
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Follow us on Instagram"
+                 className="hover:opacity-80 transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md"
+                 data-testid="link-instagram-desktop"
+               >
+                 <FaInstagram className="h-8 w-8 text-foreground" />
+               </a>
+               <a
+                 href={links.social}
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 aria-label="Follow us on Social Media"
+                 className="hover:opacity-80 transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md"
+                 data-testid="link-social-desktop"
+               >
+                 <img
+                   src="/linktree-logo.png"
+                   alt="Linktree"
+                   width={32}
+                   height={32}
+-                  className="h-8 w-auto object-contain shrink-0 rounded-lg"
++                  className="h-8 w-auto object-contain shrink-0 rounded-lg"
+                   decoding="async"
+                   loading="lazy"
+                 />
+               </a>
+             </div>
+           </div>
+```
+
+## Acceptance criteria
+
+* **Minimum 24px** spacing between site logo and “Pride Mode” at `lg`, **32–40px** at `xl+`.
+* **No wrapping**: desktop links are always a **single line** (`flex-nowrap`). If space is tight, links **scroll horizontally** (overflow-x-auto) instead of forming a second row.
+* Linktree icon keeps **aspect ratio** and **never shrinks** (`object-contain shrink-0`).
+* All `data-testid`s unchanged; mobile UI unaffected.

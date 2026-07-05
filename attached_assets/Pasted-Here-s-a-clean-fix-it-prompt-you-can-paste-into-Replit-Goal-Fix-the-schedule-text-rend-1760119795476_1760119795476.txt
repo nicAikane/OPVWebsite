@@ -1,0 +1,100 @@
+Here’s a clean “fix-it” prompt you can paste into Replit:
+
+---
+
+### Goal
+
+Fix the schedule text rendering so numerals don’t appear with extra spaces (e.g., “2 0”, “9:0 0”) and clean up head tags.
+
+### What I’m seeing
+
+The line “Season 4 will run Saturdays from Sept 20–Nov 22, 2025. The games will run from 9:00 AM–3:00 PM.” is showing numeral glyphs with visible gaps (see attached screenshot). This likely comes from our global emoji font/variant rules bleeding into normal text plus a bit of typography/nb-space handling.
+
+### Required changes
+
+1. **Scope emoji fonts correctly (CSS)**
+
+* In `index.css`, remove emoji fonts from global/heading selectors and confine them to a utility class.
+* Also stop forcing `font-variant-emoji: emoji` globally.
+
+**Edit in `index.css`:**
+
+* Replace this block (near the “Force color emoji rendering” comment):
+
+```css
+.pride-text-animated,
+h1, h2, h3, 
+span:has(> [data-emoji]), 
+[data-testid*="badge"],
+[data-testid*="heading"] {
+  font-family: "Barlow Condensed", "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Segoe UI Symbol", system-ui, sans-serif;
+}
+```
+
+with:
+
+```css
+/* Keep headings on the intended display font only */
+h1, h2, h3 {
+  font-family: "Barlow Condensed", system-ui, sans-serif;
+}
+
+/* Use this class ONLY where colored emoji are needed */
+.emoji-text {
+  font-family: "Barlow Condensed", "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Segoe UI Symbol", system-ui, sans-serif;
+  font-variant-emoji: emoji;
+}
+```
+
+* Remove the global rule:
+
+```css
+* { font-variant-emoji: emoji; }
+```
+
+* Add numeral sanity and a no-wrap helper:
+
+```css
+/* Make numerals behave consistently */
+body, h1, h2, h3, p {
+  font-variant-numeric: lining-nums proportional-nums;
+}
+
+/* Utility to keep date/time tokens together */
+.nowrap { white-space: nowrap; }
+```
+
+
+
+2. **Harden the actual schedule copy (JSX/HTML)**
+
+* Wherever the schedule sentence is rendered (likely in `App` or a Section component), replace the raw text with one that uses non-breaking spaces around date/time tokens and a proper en dash:
+
+```jsx
+<p>
+  Season 4 will run Saturdays from <span className="nowrap">Sept&nbsp;20</span>–<span className="nowrap">Nov&nbsp;22,</span>&nbsp;2025.
+  {' '}The games will run from <span className="nowrap">9:00&nbsp;AM</span>–<span className="nowrap">3:00&nbsp;PM</span>.
+</p>
+```
+
+* If dates/times are formatted dynamically, ensure the formatter outputs two-digit minutes and no stray spaces. (Use `Intl.DateTimeFormat` or your existing formatter to guarantee `9:00`, not `9:0 0`.)
+
+
+3. **Fix stray head tags (HTML)**
+
+* In `index.html`, there are meta/link tags *after* `</html>`. Move the Twitter Card, canonical, and preload tags back inside `<head>` and remove any duplicates the runtime already sets (since `main.tsx` rewrites meta + canonical at runtime).
+* Final `index.html` should have **no tags after `</html>`**.
+
+(Problem area is at the bottom of the file where `</html>` appears before several meta/link tags.)
+
+
+### Acceptance criteria
+
+* The sentence renders exactly as:
+
+  > Season 4 will run Saturdays from Sept 20–Nov 22, 2025. The games will run from 9:00 AM–3:00 PM.
+* No visible gaps between digits anywhere in that line.
+* Resizing the window does not break “Sept 20”, “Nov 22,” “9:00 AM”, or “3:00 PM” onto separate lines.
+* No meta/link tags exist outside `<head>` in `index.html`; no duplicated head tags at runtime.
+
+---

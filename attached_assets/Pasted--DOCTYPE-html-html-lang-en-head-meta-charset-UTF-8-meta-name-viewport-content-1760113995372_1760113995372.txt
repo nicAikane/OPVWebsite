@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPV Captain's Corner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .captains-container {
+            background: #ffffff;
+            padding: 3rem 2rem;
+            font-family: Arial, sans-serif;
+            border-radius: 0;
+            box-shadow: none;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .captains-title {
+            font-size: 2.5rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+            color: #6d7278;
+            font-family: Arial, sans-serif;
+        }
+
+        .captains-subtitle {
+            font-size: 1rem;
+            color: #6d7278;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            font-weight: normal;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem 1.5rem;
+            border: 1px solid #f1f3f4;
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 200px;
+            justify-content: space-between;
+        }
+
+        .resource-card:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-color: #ddd;
+        }
+
+        .resource-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .resource-title {
+            font-size: 1.1rem;
+            color: #6d7278;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            margin-bottom: 0.5rem;
+            text-decoration: underline;
+        }
+
+        .resource-link {
+            text-decoration: none;
+            color: inherit;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .resource-link:hover .resource-title {
+            color: #2c3e50;
+        }
+
+        /* Color coding for each resource */
+        .resource-card:nth-child(1) {
+            border-left: 5px solid #3498db;
+        }
+
+        .resource-card:nth-child(2) {
+            border-left: 5px solid #e74c3c;
+        }
+
+        .resource-card:nth-child(3) {
+            border-left: 5px solid #2ecc71;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .captains-container {
+                padding: 2rem 1rem;
+            }
+
+            .captains-title {
+                font-size: 2rem;
+            }
+
+            .captains-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .resource-card {
+                padding: 1.5rem;
+                min-height: 160px;
+            }
+
+            .resource-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .resource-title {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .captains-container {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .captains-title {
+                font-size: 1.8rem;
+            }
+
+            .resource-card {
+                padding: 1.2rem;
+                min-height: 140px;
+            }
+
+            .resource-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            .resource-title {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Animation */
+        .resource-card {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .resource-card:nth-child(1) { animation-delay: 0.1s; }
+        .resource-card:nth-child(2) { animation-delay: 0.2s; }
+        .resource-card:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="captains-container">
+        <h2 class="captains-title">Captain's Corner</h2>
+        <p class="captains-subtitle">
+            OPV Team Captains, check out these links for tips and handy information.
+        </p>
+        
+        <div class="resources-grid">
+            <div class="resource-card">
+                <a href="https://app.tango.us/app/workflow/Adding-players-to-your-roster-using-Team-Sideline-e01439d51c44483693cf7826aae63dd3" target="_blank" rel="noopener noreferrer" class="resource-link">
+                    <div class="resource-icon">👥</div>
+                    <div class="resource-title">Adding Players to Your Roster</div>
+                </a>
+            </div>
+
+            <div class="resource-card">
+                <a href="https://app.tango.us/app/workflow/How-to-customize-your-jerseys-4c7e1617417d4e9495535b383d7afc28" target="_blank" rel="noopener noreferrer" class="resource-link">
+                    <div class="resource-icon">👕</div>
+                    <div class="resource-title">Customizing Your Team Jersey</div>
+                </a>
+            </div>
+
+            <div class="resource-card">
+                <a href="https://952afa62-c5c6-46d2-99a2-68410ce0e296.usrfiles.com/ugd/952afa_30cbb111dd5a4dfbb12461685f0f4c42.pdf" target="_blank" rel="noopener noreferrer" class="resource-link">
+                    <div class="resource-icon">📖</div>
+                    <div class="resource-title">OPV Rule Book</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

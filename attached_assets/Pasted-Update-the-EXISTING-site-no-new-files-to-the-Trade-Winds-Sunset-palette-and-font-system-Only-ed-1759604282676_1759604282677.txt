@@ -1,0 +1,112 @@
+Update the EXISTING site (no new files) to the “Trade Winds Sunset” palette and font system. Only edit current HTML/CSS to apply color and font changes.
+
+1) FONTS — in the existing <head>, ensure these lines are present once (remove other font imports if they conflict), then set the stacks in CSS:
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;600;700&display=swap">
+
+2) GLOBAL CSS — add/merge this at the end of the main stylesheet (or theme file) so it overrides previous rules:
+
+/* === Trade Winds Sunset — palette tokens === */
+:root{
+  --pacific-navy:#0B1F2A;  /* primary background, headings */
+  --lagoon:#00A7C7;        /* links, CTAs, highlights */
+  --hibiscus:#FF3E81;      /* accent buttons, tags */
+  --plumeria:#FFD166;      /* chips, badges */
+  --sand:#F7EFEA;          /* cards/background tint */
+  --white:#FFFFFF;
+}
+
+/* === Typography system === */
+html{color-scheme:light dark;}
+body{
+  font-family: Inter,"Noto Sans",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji";
+  color:var(--pacific-navy);
+  background:var(--sand);
+}
+h1,h2,h3,.display,.hero h1{
+  font-family:"Barlow Condensed",system-ui,sans-serif;
+  letter-spacing:.01em;
+  text-wrap:balance;
+}
+
+/* === Links & buttons === */
+a,.link{color:var(--lagoon);text-decoration-thickness:.1em;}
+a:hover{opacity:.9}
+.btn,button,.cta{
+  background:var(--lagoon);
+  color:var(--pacific-navy);
+  border-radius:999px;
+  padding:.75rem 1.1rem;
+  font-weight:700;
+  border:0;
+}
+.btn--accent,.tag--accent{
+  background:var(--hibiscus);
+  color:var(--white);
+}
+:focus-visible{
+  outline:3px solid var(--lagoon);
+  outline-offset:2px;
+}
+
+/* === Header/Nav === */
+header, .site-header, .navbar{
+  background:var(--pacific-navy);
+  color:var(--white);
+  border-bottom:1px solid color-mix(in oklab,var(--white) 15%,transparent);
+}
+.navbar a{color:var(--white)}
+
+/* === Hero (keeps existing content, updates styling) === */
+.hero{
+  color:var(--white);
+  background:
+    linear-gradient(135deg,
+      color-mix(in oklab,var(--hibiscus) 85%,transparent),
+      color-mix(in oklab,var(--plumeria) 70%,transparent) 50%,
+      color-mix(in oklab,var(--lagoon) 85%,transparent) 100%),
+    var(--pacific-navy);
+}
+
+/* === Cards, chips, badges === */
+.card{
+  background:var(--white);
+  border:1px solid color-mix(in oklab,var(--pacific-navy) 12%,transparent);
+  box-shadow:0 6px 24px rgba(0,0,0,.06);
+  border-radius:14px;
+}
+.chip,.badge{
+  background:var(--plumeria);
+  color:var(--pacific-navy);
+  border-radius:999px;
+  padding:.3rem .8rem;
+  font-weight:700;
+}
+
+/* === Footer === */
+footer, .site-footer{
+  background:var(--pacific-navy);
+  color:var(--white);
+}
+
+/* === Motion & media === */
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important;}
+}
+
+/* === Hawaiian diacritics check (no visual change; ensures font fallback) === */
+.lang-haw, .hawaii-test::after{content:" Aikāne Hawaiʻi";font-family:Inter,"Noto Sans",system-ui;}
+/* remove the rule above if you don’t want the invisible test utility */
+
+3) OPTIONAL SAFE MAPPINGS — if the site uses previous tokens, map them to the new palette (place after any existing token declarations):
+:root{
+  --primary:var(--pacific-navy);
+  --secondary:var(--lagoon);
+  --accent:var(--hibiscus);
+  --warning:var(--plumeria);
+  --surface:var(--sand);
+  --text-on-dark:var(--white);
+}
+
+Save, rebuild, and preview.

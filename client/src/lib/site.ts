@@ -1,0 +1,53 @@
+export const siteMeta = {
+  title: "Oʻahu Pride Volleyball — Season 5",
+  description:
+    "Season 5 begins August 29, 2026. Early registration closes July 31, 2026, with Competitive 4v4, Intermediate 6v6, and Social 6v6 divisions.",
+  // Update this when the final domain is known. Runtime code will set canonical/og:url from here.
+  canonicalUrl: "https://oahupridevolleyball.org/",
+  ogImage: "https://oahupridevolleyball.org/season-5-banner.png",
+};
+
+export const season = {
+  name: "Season 5",
+  year: "2026",
+  startISO: "2026-08-29",
+  endISO: "2026-11-21",
+  rangeShort: "Aug 29–Nov 21, 2026",
+  firstGame: "August 29, 2026",
+  byeWeek: "October 17, 2026",
+  playoffs: "November 21, 2026",
+  earlyRegistrationCloses: "July 31, 2026",
+  regularRegistrationPrice: "$60.00",
+  lateRegistrationPrice: "$75.00",
+  divisions: ["Competitive 4v4", "Intermediate 6v6", "Social 6v6"],
+  clinics: "TBD",
+  parties: "TBD",
+};
+
+export const links = {
+  home: "https://opv.netlify.app",
+  donate:
+    "https://www.zeffy.com/en-US/donation-form/season-5-oahu-pride-volleyball-league/",
+  rules:
+    "https://www.aikaneohana.com/_files/ugd/952afa_30cbb111dd5a4dfbb12461685f0f4c42.pdf",
+  photos: "https://ericzmartin.smugmug.com/",
+  teamSideline: "https://teamsideline.com/aikaneohana",
+  freeAgent: "https://docs.google.com/forms/d/e/1FAIpQLSdx7Q-7YNEY38GcMcGcIPO7qaFs0dGv8P-cIBTigGxFXY0QRA/viewform?usp=publish-editor",
+  // Tournament site temporarily offline
+  tournament: "",
+  store: "https://www.bonfire.com/store/oahu-pride-volleyball/?utm_source=copy_link&utm_medium=store_page_share&utm_campaign=oahu-pride-volleyball&utm_content=default",
+  aikaneOhana: "https://www.aikaneohana.com/",
+  social: "https://linktr.ee/oahupridevolleyball",
+  facebook: "https://www.facebook.com/groups/577119141300496",
+  instagram: "https://www.instagram.com/oahupridevolleyball/",
+  sponsorsBecome:
+    "https://www.zeffy.com/en-US/donation-form/season-5-oahu-pride-volleyball-league/",
+};
+
+export type Sponsor = {
+  name: string;
+  logo: string; // path under /public
+  website: string | null;
+};
+
+export const sponsors: Sponsor[] = [];

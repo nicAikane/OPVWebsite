@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fef9ed;
+        }
+
+        .pride-toggle-switch-container {
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+        .pride-toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 52px;
+            height: 28px;
+            cursor: pointer;
+        }
+        .pride-toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .pride-switch-track {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            border-radius: 28px;
+            transition: all 0.4s ease;
+        }
+        .pride-switch-thumb {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        .pride-toggle-switch input:checked + .pride-switch-track {
+            background: linear-gradient(45deg, #e40e78, #ff6b35, #f7931d, #ffd23f, #72c837, #2e86ab, #8e44ad);
+            background-size: 300% 300%;
+            animation: pride-gradient 3s ease infinite;
+        }
+        .pride-toggle-switch input:checked + .pride-switch-track .pride-switch-thumb {
+            transform: translateX(24px);
+        }
+
+        @keyframes pride-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .pride-text-animated {
+            background: linear-gradient(45deg, #e40e78, #ff6b35, #f7931d, #ffd23f, #72c837, #2e86ab, #8e44ad);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: pride-text-gradient 3s ease infinite;
+        }
+
+        @keyframes pride-text-gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .free-agents-btn {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+            color: white;
+            border: 2px solid transparent;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .free-agents-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+    </style>
+    <title>OPV Site Header</title>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav id="main-nav" class="bg-[#fef9ed] shadow-sm sticky top-0 z-40 transition-all duration-300 ease-in-out">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col lg:flex-row items-center justify-between gap-y-4 lg:gap-y-0 py-4">
+
+            <!-- Left Side: Logo & Mobile Quick Links -->
+            <div class="flex-shrink-0 w-full lg:w-auto flex justify-between items-center">
+                <a href="https://www.aikaneohana.com/volleyball" target="_blank" rel="noopener noreferrer" aria-label="OPV Homepage" class="block rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500">
+                    <img class="h-16 md:h-20 w-auto rounded-md shadow-sm" src="https://www.aikaneohana.com/_files/ugd/952afa_season4poster.png" alt="Oahu Pride Volleyball Logo" loading="lazy">
+                </a>
+                <div class="flex items-center lg:hidden space-x-2">
+                    <a href="https://www.aikaneohana.com/volleyball" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-teal-800 text-sm font-medium">Home</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="https://www.teamsideline.com/sites/aikaneohana/home" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-teal-800 text-sm font-medium">Registration</a>
+                </div>
+            </div>
+
+            <!-- Right Side: Links & Buttons -->
+            <div class="w-full lg:w-auto">
+                <div class="hidden lg:flex flex-col lg:flex-row items-center justify-center lg:justify-end gap-y-4 lg:gap-y-0 w-full">
+                    <div class="flex items-center ml-10 space-x-4">
+                        <div class="pride-toggle-switch-container flex items-center gap-x-3">
+                            <span id="pride-toggle-label" class="font-semibold pride-text-animated">Pride Mode</span>
+                            <label class="pride-toggle-switch">
+                                <input type="checkbox" id="prideToggle" onclick="togglePrideMode()">
+                                <span class="pride-switch-track"><span class="pride-switch-thumb"></span></span>
+                            </label>
+                        </div>
+                        <a href="https://www.aikaneohana.com/volleyball" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="https://www.teamsideline.com/sites/aikaneohana/home" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Registration</a>
+                        <a href="https://www.aikaneohana.com/_files/ugd/952afa_30cbb111dd5a4dfbb12461685f0f4c42.pdf" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Rules</a>
+                        <a href="https://ericzmartin.com/" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Photos</a>
+                        <a href="https://bit.ly/kaiauluclassic" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Tournament</a>
+                        <a href="https://www.bonfire.com/opvseason4/" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Store</a>
+                        <a href="https://www.aikaneohana.com/" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Aikāne ʻOhana</a>
+                    </div>
+                    <!-- Desktop Free Agent Button -->
+                    <a href="https://www.teamsideline.com/Layouts/minimalist/Home.aspx?d=%2Box4z56A3NEjkowRwkEosA%3D%3D"
+                       target="_blank" rel="noopener noreferrer"
+                       class="free-agents-btn relative inline-flex items-center px-4 py-2 ml-4 text-sm font-semibold rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300">
+                         <span class="relative z-10">🏐 Free Agent Signup</span>
+                    </a>
+                    <div class="flex items-center mt-4 lg:mt-0 lg:ml-4">
+                        <div class="flex items-center gap-4 ml-4">
+                            <a href="https://linktr.ee/oahupridevolleyball" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Social Media" class="social-icon bg-pink-100 p-1.5 rounded-full hover:opacity-80 transition duration-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-pink-600" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.27.058 2.158.247 2.914.553a4.97 4.97 0 0 1 1.77 1.153 4.97 4.97 0 0 1 1.153 1.77c.306.756.495 1.644.553 2.914.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.058 1.27-.247 2.158-.553 2.914a4.97 4.97 0 0 1-1.153 1.77 4.97 4.97 0 0 1-1.77 1.153c-.756.306-1.644.495-2.914.553-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.27-.058-2.158-.247-2.914-.553a4.97 4.97 0 0 1-1.77-1.153 4.97 4.97 0 0 1-1.153-1.77c-.306-.756-.495-1.644-.553-2.914-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.058-1.27.247-2.158.553-2.914a4.97 4.97 0 0 1 1.153-1.77A4.97 4.97 0 0 1 4.237 2.81c.756-.306 1.644-.495 2.914-.553C8.416 2.175 8.796 2.163 12 2.163m0-1.625c-3.259 0-3.67.014-4.947.072-1.296.059-2.21.25-3.01.556a6.59 6.59 0 0 0-2.32 1.514 6.59 6.59 0 0 0-1.514 2.32c-.306.8-.497 1.714-.556 3.01C.014 8.33 0 8.741 0 12s.014 3.67.072 4.947c.059 1.296.25 2.21.556 3.01a6.59 6.59 0 0 0 1.514 2.32 6.59 6.59 0 0 0 2.32 1.514c.8.306 1.714.497 3.01.556 1.277.058 1.688.072 4.947.072s3.67-.014 4.947-.072c1.296-.059 2.21-.25 3.01-.556a6.59 6.59 0 0 0 2.32-1.514 6.59 6.59 0 0 0 1.514-2.32c.306-.8.497-1.714.556-3.01.058-1.277.072-1.688.072-4.947s-.014-3.67-.072-4.947c-.059-1.296-.25-2.21-.556-3.01a6.59 6.59 0 0 0-1.514-2.32 6.59 6.59 0 0 0-2.32-1.514c-.8-.306-1.714-.497-3.01-.556C15.67.014 15.259 0 12 0z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Mobile Action Buttons -->
+                <div class="lg:hidden flex flex-col w-full gap-y-4 mt-4">
+                     <a href="https://www.teamsideline.com/Layouts/minimalist/Home.aspx?d=%2Box4z56A3NEjkowRwkEosA%3D%3D"
+                        target="_blank" rel="noopener noreferrer"
+                        class="free-agents-btn w-full text-center px-6 py-3 text-base font-semibold rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300">
+                          🏐 Free Agent Signup
+                     </a>
+                     <div class="flex items-center justify-center gap-4">
+                         <a href="https://linktr.ee/oahupridevolleyball" target="_blank" rel="noopener noreferrer" aria-label="Social Links" class="social-icon bg-pink-100 p-1.5 rounded-full hover:opacity-80 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-pink-600" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.27.058 2.158.247 2.914.553a4.97 4.97 0 0 1 1.77 1.153 4.97 4.97 0 0 1 1.153 1.77c.306.756.495 1.644.553 2.914.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.058 1.27-.247 2.158-.553 2.914a4.97 4.97 0 0 1-1.153 1.77 4.97 4.97 0 0 1-1.77 1.153c-.756.306-1.644.495-2.914.553-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.27-.058-2.158-.247-2.914-.553a4.97 4.97 0 0 1-1.77-1.153 4.97 4.97 0 0 1-1.153-1.77c-.306-.756-.495-1.644-.553-2.914-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.058-1.27.247-2.158.553-2.914a4.97 4.97 0 0 1 1.153-1.77A4.97 4.97 0 0 1 4.237 2.81c.756-.306 1.644-.495 2.914-.553C8.416 2.175 8.796 2.163 12 2.163m0-1.625c-3.259 0-3.67.014-4.947.072-1.296.059-2.21.25-3.01.556a6.59 6.59 0 0 0-2.32 1.514 6.59 6.59 0 0 0-1.514 2.32c-.306.8-.497 1.714-.556 3.01C.014 8.33 0 8.741 0 12s.014 3.67.072 4.947c.059 1.296.25 2.21.556 3.01a6.59 6.59 0 0 0 1.514 2.32 6.59 6.59 0 0 0 2.32 1.514c.8.306 1.714.497 3.01.556 1.277.058 1.688.072 4.947.072s3.67-.014 4.947-.072c1.296-.059 2.21-.25 3.01-.556a6.59 6.59 0 0 0 2.32-1.514 6.59 6.59 0 0 0 1.514-2.32c.306-.8.497-1.714.556-3.01.058-1.277.072-1.688.072-4.947s-.014-3.67-.072-4.947c-.059-1.296-.25-2.21-.556-3.01a6.59 6.59 0 0 0-1.514-2.32 6.59 6.59 0 0 0-2.32-1.514c-.8-.306-1.714-.497-3.01-.556C15.67.014 15.259 0 12 0z"/></svg>
+                        </a>
+                     </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </nav>
+
+</body>
+</html>

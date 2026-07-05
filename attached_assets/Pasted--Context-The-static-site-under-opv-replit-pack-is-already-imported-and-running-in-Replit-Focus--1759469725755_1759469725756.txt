@@ -1,0 +1,89 @@
+
+Context: The static site under `opv-replit-pack/` is already imported and running in Replit. Focus only on content/design updates in `opv-replit-pack/` to match the current live site content in `CurrentOPVSite.html`. Do not add any steps about importing, running, or configuring Replit.
+
+- Goal: Align the static single‑page site with the current OPV site content while removing all registration and free‑agent references (registration is closed).
+- Keep Tailwind via CDN; do not introduce Node, Vite, or bundlers.
+- Use links and copy from `league-site-template-questionnaire OPV.md`, `opv-replit-pack/content/opv-questionnaire.md`, and `CurrentOPVSite.html`.
+- Exclude legacy pages (Board, Ratings, Scorekeeping).
+
+## Parity Audit (compare with `CurrentOPVSite.html`)
+
+- Ensure the following elements exist and match intent:
+  - OPV logo/poster in header and hero, hero headline, and LŌKAHI motto.
+  - Navigation: Home, Donate, Rules, Photos, Tournament, Store, Aikāne ʻOhana, Sponsors (anchor).
+  - Sections: Hero, About, Feature Cards (Schedules & Standings, Photos), Sponsors grid, Kaiāulu Classic Tournament, Footer with Rules link and social.
+  - Alt text on all images and accessible focus styles.
+
+## Required Changes in `index.html`
+
+- Fix focus outline color (remove non-runtime Tailwind theme()):
+  - File: `opv-replit-pack/index.html:28`
+  - Change: `outline: 2px solid theme('colors.teal.500');` → `outline: 2px solid #14b8a6;`
+
+- Navigation updates (registration closed):
+  - Remove the “Registration” link from the nav.
+  - Remove all “Free Agent” CTA buttons (desktop header and mobile header).
+  - Add a “Donate” link pointing to Zeffy: `https://www.zeffy.com/fundraising/support-season-4-oahu-pride-volleyball-league`.
+  - Ensure a “Sponsors” nav item scrolls to the sponsors section: add `<a href="#sponsors">Sponsors</a>`.
+
+- Add sponsors section anchor:
+  - Change the sponsors section opening tag to: `<section id="sponsors" class="...">` (currently missing the id).
+
+- Hero section (replace CTAs):
+  - Remove “Register Your Team” and “Join as Free Agent” buttons.
+  - Add two buttons instead:
+    - “Donate” → `https://www.zeffy.com/fundraising/support-season-4-oahu-pride-volleyball-league`
+    - “View Schedule” → `https://www.teamsideline.com/sites/aikaneohana/home`
+  - Keep the Season 4 poster image and LŌKAHI copy; keep `loading="lazy"` on large images.
+
+- Feature cards:
+  - Keep “Schedules & Standings” (TeamSideline) and “Game Day Photos” (Eric Z Martin) as-is or refine copy to match the live site tone.
+
+- Sponsors section:
+  - Replace the placeholder grid with real logos using `opv-replit-pack/sponsors/sponsor-cards-snippet.html`.
+  - Update the button under the grid to “Donate” and link to Zeffy (above), or change label to “Sponsor OPV” if a sponsor form is preferred.
+
+- Final CTA section (remove registration language):
+  - Replace headline/copy to reflect that registration is closed (e.g., “Season 4 is underway — mahalo for your support!”).
+  - Replace buttons with:
+    - “Donate” → Zeffy link (above)
+    - “View Photos” → `https://ericzmartin.com/`
+
+- Footer:
+  - Keep Rules PDF link.
+  - Optionally add a small “Donate” link near the Rules link.
+
+- Favicons (keep, no Replit steps):
+  - Link placeholders after the fonts block:
+    - `<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">`
+    - `<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">`
+    - `<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">`
+  - Place placeholder files in `opv-replit-pack/assets/` and note TODO in `assets/README.md`.
+
+## Sponsors Assets (optional)
+
+- To use local logos, run the logo download script and point `src` to `sponsors/*.png`:
+  - Script: `opv-replit-pack/sponsors/download-logos.sh`
+- Alternatively, keep `src` as the remote Wix CDN URLs listed in `opv-replit-pack/sponsors/opv-sponsors-data.md`.
+- Keep “Halau Hula O Ikemanu” as a visible placeholder until a logo is provided.
+
+## Accessibility
+
+- Provide descriptive `alt` for poster/logo and all sponsor logos.
+- Ensure focus-visible outlines are clear; verify reduced-motion handling.
+
+## Cleanup
+
+- Remove any references to Registration, Register, Free Agent, or Join as Free Agent across header, hero, and final CTA.
+- Ensure no references to Board/Ratings/Scorekeeping remain.
+- Keep Pride Mode toggle and contrast-appropriate styles.
+
+## Acceptance Criteria
+
+- `opv-replit-pack/index.html` renders a complete, responsive single‑page site with:
+  - Navigation: Home, Donate, Rules, Photos, Tournament, Store, Aikāne ʻOhana, Sponsors (scrolls to section).
+  - No registration/free-agent links or buttons anywhere in the page.
+  - Updated hero and final CTA with Donate/Schedule/Photos CTAs (no registration language).
+  - Sponsors grid populated with real logos; placeholder used only where logos are missing.
+  - Focus outline fixed; hero image has alt text; favicons linked without console 404s.
+- Tailwind via CDN only; no new build tooling added.

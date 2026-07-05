@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPV Sponsors</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .sponsors-container {
+            background: #ffffff;
+            padding: 3rem 2rem;
+            font-family: Arial, sans-serif;
+            border-radius: 0;
+            box-shadow: none;
+            margin: 1rem 0;
+        }
+
+        .sponsors-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+            color: #6d7278;
+            font-family: Arial, sans-serif;
+        }
+
+        .sponsors-subtitle {
+            text-align: center;
+            font-size: 1rem;
+            color: #6d7278;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            font-weight: normal;
+        }
+
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+            justify-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .sponsor-card {
+            background: white;
+            border-radius: 0;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid #f1f3f4;
+            width: 100%;
+            max-width: 300px;
+            min-height: 220px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: none;
+        }
+
+        .sponsor-logo {
+            width: 100%;
+            height: 140px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+            border-radius: 0;
+            margin-bottom: 1rem;
+            flex-shrink: 0;
+        }
+
+        .sponsor-name {
+            font-size: 1rem;
+            color: #6d7278;
+            font-weight: normal;
+            font-family: Arial, sans-serif;
+            margin-top: auto;
+            padding-top: 0.5rem;
+        }
+
+        .sponsor-card:hover {
+            transform: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-color: #ddd;
+        }
+
+        .sponsor-card:hover .sponsor-logo {
+            transform: scale(1.02);
+        }
+
+        .thank-you-message {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: #ffffff;
+            border-radius: 0;
+        }
+
+        .thank-you-message p {
+            color: #6d7278;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            font-weight: normal;
+        }
+
+        .become-sponsor-btn {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: normal;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: none;
+            border: none;
+        }
+
+        .become-sponsor-btn:hover {
+            transform: none;
+            box-shadow: none;
+            text-decoration: none;
+            color: white;
+            background: #34495e;
+        }
+
+        /* Tablet responsiveness */
+        @media (max-width: 1024px) {
+            .sponsors-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .sponsor-card {
+                min-height: 200px;
+                padding: 1.25rem;
+            }
+
+            .sponsor-logo {
+                height: 120px;
+            }
+
+            .sponsor-name {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .sponsors-container {
+                padding: 2rem 1rem;
+            }
+
+            .sponsors-title {
+                font-size: 2rem;
+            }
+
+            .sponsors-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .sponsors-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .sponsor-card {
+                max-width: none;
+                min-height: 180px;
+                padding: 1rem;
+            }
+
+            .sponsor-logo {
+                height: 100px;
+            }
+
+            .sponsor-name {
+                font-size: 0.9rem;
+            }
+
+            .thank-you-message {
+                padding: 1.5rem;
+                margin-top: 2rem;
+            }
+        }
+
+        /* Small mobile */
+        @media (max-width: 480px) {
+            .sponsors-container {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .sponsors-title {
+                font-size: 1.8rem;
+            }
+
+            .sponsors-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .sponsor-card {
+                min-height: 200px;
+                padding: 1.5rem;
+                max-width: 280px;
+                margin: 0 auto;
+            }
+
+            .sponsor-logo {
+                height: 120px;
+            }
+
+            .sponsor-name {
+                font-size: 1rem;
+            }
+
+            .become-sponsor-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Animation for loading */
+        .sponsor-card {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .sponsor-card:nth-child(1) { animation-delay: 0.1s; }
+        .sponsor-card:nth-child(2) { animation-delay: 0.2s; }
+        .sponsor-card:nth-child(3) { animation-delay: 0.3s; }
+        .sponsor-card:nth-child(4) { animation-delay: 0.4s; }
+        .sponsor-card:nth-child(5) { animation-delay: 0.5s; }
+        .sponsor-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Ensure links work properly */
+        .sponsor-card:focus {
+            outline: 2px solid #3498db;
+            outline-offset: 2px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sponsors-container">
+        <h2 class="sponsors-title">Our Amazing Sponsors</h2>
+        <p class="sponsors-subtitle">
+            Mahalo to these incredible businesses and individuals who support our LGBTQIA+ volleyball community with aloha spirit.
+        </p>
+        
+        <div class="sponsors-grid">
+            <a href="https://ericzmartin.com" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+                <img src="https://static.wixstatic.com/media/6ea41b_1969f52a6a6b44a18a7beb1cd51e9771~mv2.png" 
+                     alt="Eric Martin Photography" 
+                     class="sponsor-logo"
+                     loading="lazy">
+                <div class="sponsor-name">Eric Martin Photography</div>
+            </a>
+
+            <a href="https://hulas.com" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+                <img src="https://static.wixstatic.com/media/6ea41b_fd973045fd0b4c738f1af46a5bcb669d~mv2.png" 
+                     alt="Hula's Waikiki" 
+                     class="sponsor-logo"
+                     loading="lazy">
+                <div class="sponsor-name">Hula's Waikiki</div>
+            </a>
+
+            <a href="https://www.wangchungs.com" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+                <img src="https://static.wixstatic.com/media/952afa_f520492e6cbd42319e4cf71c9a94c118~mv2.webp" 
+                     alt="Wang Chungs" 
+                     class="sponsor-logo"
+                     loading="lazy">
+                <div class="sponsor-name">Wang Chungs</div>
+            </a>
+
+            <a href="#" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+                <img src="https://static.wixstatic.com/media/6ea41b_d6f960a8b60844d3a3aa5219b7ffaa88~mv2.png" 
+                     alt="Team Mimosa" 
+                     class="sponsor-logo"
+                     loading="lazy">
+                <div class="sponsor-name">Team Mimosa</div>
+            </a>
+
+            <a href="https://www.instagram.com/halau_hula_o_ikemanu_?igsh=ZnM3c2hmY2hnZ255" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+                <img src="https://static.wixstatic.com/media/952afa_b535dc003cc540968950a7b9d97df5f2~mv2.jpg" 
+                     alt="Halau Hula O Ikemanu" 
+                     class="sponsor-logo"
+                     loading="lazy">
+                <div class="sponsor-name">Halau Hula O Ikemanu</div>
+            </a>
+
+            <a href="https://www.hawaiigaybar.com/" target="_blank" rel="noopener noreferrer" class="sponsor-card">
+                <img src="https://static.wixstatic.com/media/952afa_a535a421d5b54c2aa0872a061d415613~mv2.png" 
+                     alt="Tapas Waikiki" 
+                     class="sponsor-logo"
+                     loading="lazy">
+                <div class="sponsor-name">Tapas Waikiki</div>
+            </a>
+        </div>
+
+        <div class="thank-you-message">
+            <p>
+                Mahalo to these incredible businesses who support our LGBTQIA+ volleyball community with aloha spirit.
+            </p>
+            <a href="https://www.zeffy.com/en-US/fundraising/191a11d3-841f-420d-912a-990a33cace29" target="_blank" rel="noopener noreferrer" class="become-sponsor-btn">Become a Sponsor</a>
+        </div>
+    </div>
+</body>
+</html>

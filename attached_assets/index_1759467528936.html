@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oahu Pride Volleyball — Season 4 (Fall 2025)</title>
+    <meta name="description" content="Inclusive, all-gender grass volleyball league in Honolulu bringing the Oʻahu LGBTQIA+ community together.">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Oahu Pride Volleyball — Season 4 (Fall 2025)">
+    <meta property="og:description" content="Inclusive, all-gender grass volleyball league in Honolulu.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.aikaneohana.com/_files/ugd/952afa_season4poster.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fef9ed;
+            transition: all 0.5s ease;
+            overflow-x: hidden;
+        }
+
+        *:focus-visible {
+            outline: 2px solid theme('colors.teal.500');
+            outline-offset: 2px;
+        }
+
+        /* Pride Mode Styles */
+        .pride-toggle-switch-container {
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+        body.pride-mode .pride-toggle-switch-container {
+            color: white;
+            text-shadow: 0 0 8px rgba(0,0,0,0.5);
+        }
+        .pride-toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 52px;
+            height: 28px;
+            cursor: pointer;
+        }
+        .pride-toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .pride-switch-track {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            border-radius: 28px;
+            transition: all 0.4s ease;
+        }
+        .pride-switch-thumb {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            border-radius: 50%;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        .pride-toggle-switch input:checked + .pride-switch-track {
+            background: linear-gradient(45deg, #e40e78, #ff6b35, #f7931d, #ffd23f, #72c837, #2e86ab, #8e44ad);
+            background-size: 300% 300%;
+            animation: pride-gradient 3s ease infinite;
+        }
+        .pride-toggle-switch input:checked + .pride-switch-track .pride-switch-thumb {
+            transform: translateX(24px);
+        }
+
+        @keyframes pride-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .pride-text-animated {
+            background: linear-gradient(45deg, #e40e78, #ff6b35, #f7931d, #ffd23f, #72c837, #2e86ab, #8e44ad);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: pride-text-gradient 3s ease infinite;
+        }
+
+        @keyframes pride-text-gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        body.pride-mode {
+            background: linear-gradient(-45deg, #e40e78, #ff6b35, #f7931d, #ffd23f, #72c837, #2e86ab, #8e44ad, #e40e78);
+            background-size: 300% 300%;
+            animation: pride-bg-shift 8s linear infinite;
+            background-attachment: scroll;
+        }
+
+        @keyframes pride-bg-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .pride-mode #main-nav {
+            background: linear-gradient(90deg,
+                rgba(228, 14, 120, 0.9),
+                rgba(255, 107, 53, 0.9),
+                rgba(247, 147, 29, 0.9),
+                rgba(255, 210, 63, 0.9),
+                rgba(114, 200, 55, 0.9),
+                rgba(46, 134, 171, 0.9),
+                rgba(142, 68, 173, 0.9)
+            ) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .pride-mode h1,
+        .pride-mode h2,
+        .pride-mode h3 {
+            background: linear-gradient(45deg, #e40e78, #ff6b35, #f7931d, #ffd23f, #72c837, #2e86ab, #8e44ad);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: rainbow-wave 2s ease-in-out infinite;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes rainbow-wave {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Free Agent Button */
+        .free-agents-btn {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+            color: white;
+            border: 2px solid transparent;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .free-agents-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+            background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0891b2 100%);
+        }
+
+        .pride-mode .free-agents-btn {
+            background: linear-gradient(45deg, #e40e78, #ff6b35, #f7931d, #ffd23f, #72c837, #2e86ab, #8e44ad) !important;
+            background-size: 300% 300% !important;
+            animation: pride-gradient 2s ease infinite !important;
+            color: white !important;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
+            border: 2px solid white !important;
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Bar -->
+    <nav id="main-nav" class="bg-[#fef9ed] shadow-sm sticky top-0 z-40 transition-all duration-300 ease-in-out">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col lg:flex-row items-center justify-between gap-y-4 lg:gap-y-0 py-4">
+
+            <!-- Left Side: Logo & Mobile Quick Links -->
+            <div class="flex-shrink-0 w-full lg:w-auto flex justify-between items-center">
+                <a href="https://www.aikaneohana.com/volleyball" target="_blank" rel="noopener noreferrer" aria-label="OPV Homepage" class="block rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500">
+                    <img class="h-16 md:h-20 w-auto rounded-md shadow-sm" src="https://www.aikaneohana.com/_files/ugd/952afa_season4poster.png" alt="Oahu Pride Volleyball Logo" loading="lazy">
+                </a>
+                <div class="flex items-center lg:hidden space-x-2">
+                    <a href="https://www.aikaneohana.com/volleyball" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-teal-800 text-sm font-medium">Home</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="https://www.teamsideline.com/sites/aikaneohana/home" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-teal-800 text-sm font-medium">Registration</a>
+                </div>
+            </div>
+
+            <!-- Right Side: Links & Buttons -->
+            <div class="w-full lg:w-auto">
+                <div class="hidden lg:flex flex-col lg:flex-row items-center justify-center lg:justify-end gap-y-4 lg:gap-y-0 w-full">
+                    <div class="flex items-center ml-10 space-x-4">
+                        <div class="pride-toggle-switch-container flex items-center gap-x-3">
+                            <span id="pride-toggle-label" class="font-semibold pride-text-animated">Pride Mode</span>
+                            <label class="pride-toggle-switch">
+                                <input type="checkbox" id="prideToggle" onclick="togglePrideMode()">
+                                <span class="pride-switch-track"><span class="pride-switch-thumb"></span></span>
+                            </label>
+                        </div>
+                        <a href="https://www.aikaneohana.com/volleyball" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="https://www.teamsideline.com/sites/aikaneohana/home" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Registration</a>
+                        <a href="https://www.aikaneohana.com/_files/ugd/952afa_30cbb111dd5a4dfbb12461685f0f4c42.pdf" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Rules</a>
+                        <a href="https://ericzmartin.com/" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Photos</a>
+                        <a href="https://bit.ly/kaiauluclassic" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Tournament</a>
+                        <a href="https://www.bonfire.com/opvseason4/" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Store</a>
+                        <a href="https://www.aikaneohana.com/" target="_blank" rel="noopener noreferrer" class="nav-link text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium">Aikāne ʻOhana</a>
+                    </div>
+                    <!-- Desktop Free Agent Button -->
+                    <a href="https://www.teamsideline.com/Layouts/minimalist/Home.aspx?d=%2Box4z56A3NEjkowRwkEosA%3D%3D"
+                       target="_blank" rel="noopener noreferrer"
+                       class="free-agents-btn relative inline-flex items-center px-4 py-2 ml-4 text-sm font-semibold rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300">
+                         <span class="relative z-10">🏐 Free Agent Signup</span>
+                    </a>
+                    <div class="flex items-center mt-4 lg:mt-0 lg:ml-4">
+                        <div class="flex items-center gap-4 ml-4">
+                            <a href="https://linktr.ee/oahupridevolleyball" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Social Media" class="social-icon bg-pink-100 p-1.5 rounded-full hover:opacity-80 transition duration-200">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-pink-600" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.27.058 2.158.247 2.914.553a4.97 4.97 0 0 1 1.77 1.153 4.97 4.97 0 0 1 1.153 1.77c.306.756.495 1.644.553 2.914.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.058 1.27-.247 2.158-.553 2.914a4.97 4.97 0 0 1-1.153 1.77 4.97 4.97 0 0 1-1.77 1.153c-.756.306-1.644.495-2.914.553-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.27-.058-2.158-.247-2.914-.553a4.97 4.97 0 0 1-1.77-1.153 4.97 4.97 0 0 1-1.153-1.77c-.306-.756-.495-1.644-.553-2.914-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.058-1.27.247-2.158.553-2.914a4.97 4.97 0 0 1 1.153-1.77A4.97 4.97 0 0 1 4.237 2.81c.756-.306 1.644-.495 2.914-.553C8.416 2.175 8.796 2.163 12 2.163m0-1.625c-3.259 0-3.67.014-4.947.072-1.296.059-2.21.25-3.01.556a6.59 6.59 0 0 0-2.32 1.514 6.59 6.59 0 0 0-1.514 2.32c-.306.8-.497 1.714-.556 3.01C.014 8.33 0 8.741 0 12s.014 3.67.072 4.947c.059 1.296.25 2.21.556 3.01a6.59 6.59 0 0 0 1.514 2.32 6.59 6.59 0 0 0 2.32 1.514c.8.306 1.714.497 3.01.556 1.277.058 1.688.072 4.947.072s3.67-.014 4.947-.072c1.296-.059 2.21-.25 3.01-.556a6.59 6.59 0 0 0 2.32-1.514 6.59 6.59 0 0 0 1.514-2.32c.306-.8.497-1.714.556-3.01.058-1.277.072-1.688.072-4.947s-.014-3.67-.072-4.947c-.059-1.296-.25-2.21-.556-3.01a6.59 6.59 0 0 0-1.514-2.32 6.59 6.59 0 0 0-2.32-1.514c-.8-.306-1.714-.497-3.01-.556C15.67.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.7a4.537 4.537 0 1 1 0-9.075 4.537 4.537 0 0 1 0 9.075zM18.402 6.4a1.44 1.44 0 1 0 0-2.88 1.44 1.44 0 0 0 0 2.88z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Mobile Action Buttons -->
+                <div class="lg:hidden flex flex-col w-full gap-y-4 mt-4">
+                     <a href="https://www.teamsideline.com/Layouts/minimalist/Home.aspx?d=%2Box4z56A3NEjkowRwkEosA%3D%3D"
+                        target="_blank" rel="noopener noreferrer"
+                        class="free-agents-btn w-full text-center px-6 py-3 text-base font-semibold rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300">
+                          🏐 Free Agent Signup
+                     </a>
+                     <div class="flex items-center justify-center gap-4">
+                         <a href="https://linktr.ee/oahupridevolleyball" target="_blank" rel="noopener noreferrer" aria-label="Social Links" class="social-icon bg-pink-100 p-1.5 rounded-full hover:opacity-80 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-pink-600" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.27.058 2.158.247 2.914.553a4.97 4.97 0 0 1 1.77 1.153 4.97 4.97 0 0 1 1.153 1.77c.306.756.495 1.644.553 2.914.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.058 1.27-.247 2.158-.553 2.914a4.97 4.97 0 0 1-1.153 1.77 4.97 4.97 0 0 1-1.77 1.153c-.756.306-1.644.495-2.914.553-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.27-.058-2.158-.247-2.914-.553a4.97 4.97 0 0 1-1.77-1.153 4.97 4.97 0 0 1-1.153-1.77c-.306-.756-.495-1.644-.553-2.914-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.058-1.27.247-2.158.553-2.914a4.97 4.97 0 0 1 1.153-1.77A4.97 4.97 0 0 1 4.237 2.81c.756-.306 1.644-.495 2.914-.553C8.416 2.175 8.796 2.163 12 2.163m0-1.625c-3.259 0-3.67.014-4.947.072-1.296.059-2.21.25-3.01.556a6.59 6.59 0 0 0-2.32 1.514 6.59 6.59 0 0 0-1.514 2.32c-.306.8-.497 1.714-.556 3.01C.014 8.33 0 8.741 0 12s.014 3.67.072 4.947c.059 1.296.25 2.21.556 3.01a6.59 6.59 0 0 0 1.514 2.32 6.59 6.59 0 0 0 2.32 1.514c.8.306 1.714.497 3.01.556 1.277.058 1.688.072 4.947.072s3.67-.014 4.947-.072c1.296-.059 2.21-.25 3.01-.556a6.59 6.59 0 0 0 2.32-1.514 6.59 6.59 0 0 0 1.514-2.32c.306-.8.497-1.714.556-3.01.058-1.277.072-1.688.072-4.947s-.014-3.67-.072-4.947c-.059-1.296-.25-2.21-.556-3.01a6.59 6.59 0 0 0-1.514-2.32 6.59 6.59 0 0 0-2.32-1.514c-.8-.306-1.714-.497-3.01-.556C15.67.014 15.259 0 12 0z"/></svg>
+                        </a>
+                     </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="w-full bg-gradient-to-br from-pink-100 via-yellow-50 to-blue-100 py-12 md:py-20">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <div class="mb-8">
+                <img src="https://www.aikaneohana.com/_files/ugd/952afa_season4poster.png"
+                     alt="Oahu Pride Volleyball Season 4 Poster"
+                     class="mx-auto h-64 md:h-96 w-auto mb-6 hover-lift rounded-xl shadow-lg">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                    <span class="text-2xl">🏳️‍🌈</span>
+                    <span class="pride-text-animated">Oahu Pride Volleyball</span>
+                    <span class="text-2xl">🏐</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-700 font-medium max-w-4xl mx-auto leading-relaxed">
+                    Welcome to Oahu Pride Volleyball (formerly the Hawaii LGBTQ Volleyball League)… bringing the Oʻahu LGBTQIA+ community together through friendship and a shared love of volleyball.
+                </p>
+                <p class="text-lg md:text-xl text-gray-600 mt-4 font-semibold">
+                    LŌKAHI: Unity | Balance | Communication
+                </p>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="https://www.teamsideline.com/sites/aikaneohana/home"
+                   target="_blank" rel="noopener noreferrer"
+                   class="bg-gradient-to-r from-pink-500 to-yellow-400 text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg hover-lift transition-all duration-300">
+                    Register Your Team
+                </a>
+                <a href="https://www.teamsideline.com/Layouts/minimalist/Home.aspx?d=%2Box4z56A3NEjkowRwkEosA%3D%3D"
+                   target="_blank" rel="noopener noreferrer"
+                   class="bg-blue-500 text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg hover:bg-blue-600 transition-all duration-300 hover-lift">
+                    🏐 Join as Free Agent
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="w-full py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    About OPV 🌺
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-blue-500 mx-auto rounded-full mb-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        As a proud partner of <a href="https://www.aikaneohana.com/" target="_blank" rel="noopener noreferrer" class="text-pink-600 hover:text-pink-800 font-semibold underline">Aikāne ʻOhana</a> (501(c)(3)),
+                        we bring together players of all skill levels to enjoy exciting, competitive grass volleyball in a supportive and fun environment.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Our community celebrates diversity, fosters friendship, and creates lasting memories on and off the court.
+                        From beginners to all-stars, everyone has a place in our ʻohana!
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed font-semibold">
+                        Season 4 runs September 13 – November 22, 2025<br>
+                        Games on Saturdays, 8:00 AM – 4:00 PM
+                    </p>
+                    <div class="flex flex-wrap gap-4 text-sm justify-center sm:justify-start">
+                        <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full">🏳️‍🌈 Inclusive</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">🏐 All Skill Levels</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full">🌱 Grass Volleyball</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full">🤝 Community-Led</span>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://www.aikaneohana.com/_files/ugd/952afa_season4photo.jpg"
+                         alt="OPV Players in Action"
+                         class="rounded-xl shadow-lg hover-lift w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Cards -->
+    <section class="w-full py-16 bg-gradient-to-br from-cyan-50 via-blue-50 to-indigo-50">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    Stay Connected 🔗
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Schedules & Standings -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift text-center">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Schedules & Standings</h3>
+                    <p class="text-gray-600 mb-6">See match schedules, standings & results on TeamSideline.</p>
+                    <a href="https://www.teamsideline.com/sites/aikaneohana/home"
+                       target="_blank" rel="noopener noreferrer"
+                       class="bg-gradient-to-r from-pink-500 to-yellow-400 text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg hover-lift transition-all duration-300 inline-block">
+                        View Schedule
+                    </a>
+                </div>
+
+                <!-- Photos -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover-lift text-center">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Game Day Photos</h3>
+                    <p class="text-gray-600 mb-6">Relive the action with our media partner Eric Z Martin Photography.</p>
+                    <a href="https://ericzmartin.com/"
+                       target="_blank" rel="noopener noreferrer"
+                       class="bg-indigo-500 text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg hover:bg-indigo-600 hover-lift transition-all duration-300 inline-block">
+                        Visit Photo Site
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section (Placeholder) -->
+    <section class="w-full py-16 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                    Our Sponsors 🙏
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    A huge mahalo to our sponsors for making our league possible!
+                </p>
+            </div>
+
+            <!-- Sponsor Grid Placeholder -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 items-center justify-items-center">
+                <!-- Placeholder logos - replace with actual sponsor logos -->
+                <div class="bg-white rounded-xl p-4 shadow-md h-32 w-32 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm text-center">Sponsor Logo</span>
+                </div>
+                <div class="bg-white rounded-xl p-4 shadow-md h-32 w-32 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm text-center">Sponsor Logo</span>
+                </div>
+                <div class="bg-white rounded-xl p-4 shadow-md h-32 w-32 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm text-center">Sponsor Logo</span>
+                </div>
+                <div class="bg-white rounded-xl p-4 shadow-md h-32 w-32 flex items-center justify-center">
+                    <span class="text-gray-400 text-sm text-center">Sponsor Logo</span>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center">
+                <a href="https://www.aikaneohana.com/kaiauluclassic"
+                   target="_blank" rel="noopener noreferrer"
+                   class="bg-gradient-to-r from-pink-500 to-yellow-400 text-white font-semibold px-6 py-2 rounded-full shadow-lg hover:scale-105 transition-transform duration-200 inline-block">
+                    Become a Sponsor
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tournament Section -->
+    <section class="w-full py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+                Kaiāulu Classic Tournament 🏆
+            </h2>
+            <p class="text-lg text-gray-600 mb-8">
+                Join us for our annual tournament celebrating community and competition!
+            </p>
+            <a href="https://bit.ly/kaiauluclassic"
+               target="_blank" rel="noopener noreferrer"
+               class="bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg hover-lift transition-all duration-300 inline-block">
+                Learn More About Tournament
+            </a>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="w-full py-16 bg-gradient-to-r from-pink-500 via-yellow-400 to-blue-600 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                Come Play With Us This Fall! 🌺
+            </h2>
+            <p class="text-xl mb-8 opacity-90">
+                Season 4 runs Sept 13–Nov 22, 2025 | Games on Saturdays, 8:00 AM–4:00 PM
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="https://www.teamsideline.com/sites/aikaneohana/home"
+                   target="_blank" rel="noopener noreferrer"
+                   class="bg-white text-pink-600 font-bold px-8 py-4 rounded-full text-lg shadow-lg hover:bg-gray-100 transition-all duration-300 hover-lift">
+                    Register Your Team
+                </a>
+                <a href="https://www.teamsideline.com/Layouts/minimalist/Home.aspx?d=%2Box4z56A3NEjkowRwkEosA%3D%3D"
+                   target="_blank" rel="noopener noreferrer"
+                   class="bg-purple-500 text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg hover:bg-purple-600 transition-all duration-300 hover-lift">
+                    Join as Free Agent
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="w-full bg-gradient-to-r from-pink-500 via-yellow-400 to-blue-600 text-white py-6">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-center md:text-left">
+                    <p class="font-semibold">Oahu Pride Volleyball</p>
+                    <p class="text-sm opacity-90">Inclusive • Community-Led</p>
+                </div>
+                <div class="text-center text-sm opacity-90">
+                    <p>© Oahu Pride Volleyball / Aikāne ʻOhana (501(c)(3))</p>
+                    <p class="mt-1">
+                        <a href="https://www.aikaneohana.com/_files/ugd/952afa_30cbb111dd5a4dfbb12461685f0f4c42.pdf"
+                           target="_blank" rel="noopener noreferrer"
+                           class="hover:underline">Rules</a>
+                    </p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="https://linktr.ee/oahupridevolleyball" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 fill-white" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.27.058 2.158.247 2.914.553a4.97 4.97 0 0 1 1.77 1.153 4.97 4.97 0 0 1 1.153 1.77c.306.756.495 1.644.553 2.914.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.058 1.27-.247 2.158-.553 2.914a4.97 4.97 0 0 1-1.153 1.77 4.97 4.97 0 0 1-1.77 1.153c-.756.306-1.644.495-2.914.553-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.27-.058-2.158-.247-2.914-.553a4.97 4.97 0 0 1-1.77-1.153 4.97 4.97 0 0 1-1.153-1.77c-.306-.756-.495-1.644-.553-2.914-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.058-1.27.247-2.158.553-2.914a4.97 4.97 0 0 1 1.153-1.77A4.97 4.97 0 0 1 4.237 2.81c.756-.306 1.644-.495 2.914-.553C8.416 2.175 8.796 2.163 12 2.163m0-1.625c-3.259 0-3.67.014-4.947.072-1.296.059-2.21.25-3.01.556a6.59 6.59 0 0 0-2.32 1.514 6.59 6.59 0 0 0-1.514 2.32c-.306.8-.497 1.714-.556 3.01C.014 8.33 0 8.741 0 12s.014 3.67.072 4.947c.059 1.296.25 2.21.556 3.01a6.59 6.59 0 0 0 1.514 2.32 6.59 6.59 0 0 0 2.32 1.514c.8.306 1.714.497 3.01.556 1.277.058 1.688.072 4.947.072s3.67-.014 4.947-.072c1.296-.059 2.21-.25 3.01-.556a6.59 6.59 0 0 0 2.32-1.514 6.59 6.59 0 0 0 1.514-2.32c.306-.8.497-1.714.556-3.01.058-1.277.072-1.688.072-4.947s-.014-3.67-.072-4.947c-.059-1.296-.25-2.21-.556-3.01a6.59 6.59 0 0 0-1.514-2.32 6.59 6.59 0 0 0-2.32-1.514c-.8-.306-1.714-.497-3.01-.556C15.67.014 15.259 0 12 0z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let prideMode = false;
+
+        function togglePrideMode() {
+            prideMode = !prideMode;
+            const body = document.body;
+            const prideLabel = document.getElementById('pride-toggle-label');
+
+            if (prideMode) {
+                body.classList.add('pride-mode');
+                prideLabel.classList.remove('pride-text-animated');
+            } else {
+                body.classList.remove('pride-mode');
+                prideLabel.classList.add('pride-text-animated');
+            }
+        }
+
+        function handleScroll() {
+            const nav = document.getElementById('main-nav');
+            if (nav) {
+                if (window.scrollY > 20) {
+                    nav.classList.add('shadow-md');
+                    if (!prideMode) nav.classList.add('bg-[#fef9ed]/95', 'backdrop-blur-sm');
+                } else {
+                    nav.classList.remove('shadow-md');
+                    if (!prideMode) nav.classList.remove('bg-[#fef9ed]/95', 'backdrop-blur-sm');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', handleScroll);
+        document.addEventListener('DOMContentLoaded', handleScroll);
+    </script>
+
+</body>
+</html>

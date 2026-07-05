@@ -1,0 +1,710 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LIGHT MODE - Trade Winds Sunset Palette */
+:root {
+  --button-outline: rgba(0,0,0, .10);
+  --badge-outline: rgba(0,0,0, .05);
+
+  /* Automatic computation of border around primary / danger buttons */
+  --opaque-button-border-intensity: -8; /* In terms of percentages */
+
+  /* Backgrounds applied on top of other backgrounds when hovered/active */
+  --elevate-1: rgba(0,0,0, .03);
+  --elevate-2: rgba(0,0,0, .08);
+
+  /* Sand #F7EFEA - soft background */
+  --background: 23 48% 94%;
+
+  /* Pacific Navy #0B1F2A - headers and text */
+  --foreground: 193 58% 10%;
+
+  /* Subtle border from Sand palette */
+  --border: 23 35% 88%;
+
+  /* Slightly elevated Sand for cards */
+  --card: 23 55% 96%;
+
+  /* Pacific Navy for card text */
+  --card-foreground: 193 58% 12%;
+
+  /* Card border slightly darker */
+  --card-border: 23 40% 90%;
+
+  /* Sidebar with Sand tone */
+  --sidebar: 23 50% 92%;
+
+  /* Pacific Navy for sidebar text */
+  --sidebar-foreground: 193 58% 15%;
+
+  /* Sidebar border */
+  --sidebar-border: 23 35% 85%;
+
+  /* Hibiscus #FF3E81 for primary actions */
+  --sidebar-primary: 339 100% 62%;
+
+  --sidebar-primary-foreground: 0 0% 100%;
+
+  /* Subtle sidebar accent */
+  --sidebar-accent: 23 40% 88%;
+
+  /* Pacific Navy for accent text */
+  --sidebar-accent-foreground: 193 58% 18%;
+
+  /* Hibiscus ring */
+  --sidebar-ring: 339 100% 62%;
+
+  /* Popover with Sand tone */
+  --popover: 23 50% 91%;
+
+  /* Pacific Navy for popover text */
+  --popover-foreground: 193 58% 15%;
+
+  /* Popover border */
+  --popover-border: 23 40% 85%;
+
+  /* Hibiscus #FF3E81 for primary buttons/CTAs */
+  --primary: 339 100% 62%;
+
+  --primary-foreground: 0 0% 100%;
+
+  /* Lagoon #00A7C7 for secondary actions */
+  --secondary: 190 100% 39%;
+
+  --secondary-foreground: 0 0% 100%;
+
+  /* Muted backgrounds */
+  --muted: 23 35% 90%;
+
+  /* Muted text */
+  --muted-foreground: 193 40% 35%;
+
+  /* Plumeria #FFD166 for accents/highlights */
+  --accent: 42 100% 70%;
+
+  /* Pacific Navy for accent text */
+  --accent-foreground: 193 58% 10%;
+
+  --destructive: 0 85% 45%;
+
+  --destructive-foreground: 0 85% 98%;
+
+  --input: 23 30% 75%;
+  /* Lagoon for focus ring */
+  --ring: 190 100% 39%;
+  /* Chart colors using the palette */
+  --chart-1: 339 100% 62%;
+  --chart-2: 42 100% 70%;
+  --chart-3: 190 100% 39%;
+  --chart-4: 193 58% 20%;
+  --chart-5: 23 90% 65%;
+
+  --font-sans: Inter, "Noto Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+  --radius: .5rem; /* 8px */
+  --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
+  --shadow-xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
+  --shadow-sm: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 1px 2px -1px hsl(0 0% 0% / 0.00);
+  --shadow: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 1px 2px -1px hsl(0 0% 0% / 0.00);
+  --shadow-md: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 2px 4px -1px hsl(0 0% 0% / 0.00);
+  --shadow-lg: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 4px 6px -1px hsl(0 0% 0% / 0.00);
+  --shadow-xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 8px 10px -1px hsl(0 0% 0% / 0.00);
+  --shadow-2xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  /* Automatically computed borders - intensity can be controlled by the user by the --opaque-button-border-intensity setting */
+
+  /* Fallback for older browsers */
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --primary-border: hsl(var(--primary));
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --secondary-border: hsl(var(--secondary));
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --muted-border: hsl(var(--muted));
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --accent-border: hsl(var(--accent));
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --destructive-border: hsl(var(--destructive));
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+.dark {
+  --button-outline: rgba(255,255,255, .10);
+  --badge-outline: rgba(255,255,255, .05);
+
+  --opaque-button-border-intensity: 9;  /* In terms of percentages */
+
+  /* Backgrounds applied on top of other backgrounds when hovered/active */
+  --elevate-1: rgba(255,255,255, .04);
+  --elevate-2: rgba(255,255,255, .09);
+
+  /* Dark Pacific Navy base */
+  --background: 193 50% 8%;
+
+  /* Light Sand for text */
+  --foreground: 23 40% 92%;
+
+  /* Border with Navy tone */
+  --border: 193 40% 18%;
+
+  /* Slightly elevated dark card */
+  --card: 193 45% 11%;
+
+  /* Light text on cards */
+  --card-foreground: 23 35% 90%;
+
+  /* Card border */
+  --card-border: 193 35% 20%;
+
+  /* Dark sidebar */
+  --sidebar: 193 42% 14%;
+
+  /* Light sidebar text */
+  --sidebar-foreground: 23 30% 88%;
+
+  /* Sidebar border */
+  --sidebar-border: 193 35% 22%;
+
+  /* Hibiscus for primary in dark mode */
+  --sidebar-primary: 339 100% 62%;
+
+  --sidebar-primary-foreground: 0 0% 100%;
+
+  /* Sidebar accent */
+  --sidebar-accent: 193 40% 18%;
+
+  /* Accent text */
+  --sidebar-accent-foreground: 23 35% 85%;
+
+  /* Hibiscus ring */
+  --sidebar-ring: 339 100% 62%;
+
+  /* Dark popover */
+  --popover: 193 40% 16%;
+
+  /* Light popover text */
+  --popover-foreground: 23 30% 88%;
+
+  /* Popover border */
+  --popover-border: 193 35% 24%;
+
+  /* Hibiscus for primary actions */
+  --primary: 339 100% 62%;
+
+  --primary-foreground: 0 0% 100%;
+
+  /* Lagoon for secondary */
+  --secondary: 190 100% 39%;
+
+  --secondary-foreground: 0 0% 100%;
+
+  /* Muted backgrounds */
+  --muted: 193 35% 14%;
+
+  /* Muted text */
+  --muted-foreground: 23 25% 65%;
+
+  /* Plumeria for accents */
+  --accent: 42 100% 70%;
+
+  /* Dark text on accent */
+  --accent-foreground: 193 58% 10%;
+
+  --destructive: 0 85% 45%;
+
+  --destructive-foreground: 0 85% 98%;
+
+  --input: 193 30% 35%;
+  /* Lagoon for focus ring */
+  --ring: 190 100% 50%;
+  /* Chart colors in dark mode */
+  --chart-1: 339 100% 65%;
+  --chart-2: 42 100% 75%;
+  --chart-3: 190 100% 50%;
+  --chart-4: 193 50% 40%;
+  --chart-5: 23 85% 60%;
+
+  --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
+  --shadow-xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
+  --shadow-sm: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 1px 2px -1px hsl(0 0% 0% / 0.00);
+  --shadow: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 1px 2px -1px hsl(0 0% 0% / 0.00);
+  --shadow-md: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 2px 4px -1px hsl(0 0% 0% / 0.00);
+  --shadow-lg: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 4px 6px -1px hsl(0 0% 0% / 0.00);
+  --shadow-xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 8px 10px -1px hsl(0 0% 0% / 0.00);
+  --shadow-2xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
+
+  /* Automatically computed borders - intensity can be controlled by the user by the --opaque-button-border-intensity setting */
+
+  /* Fallback for older browsers */
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --primary-border: hsl(var(--primary));
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --secondary-border: hsl(var(--secondary));
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --muted-border: hsl(var(--muted));
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --accent-border: hsl(var(--accent));
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --destructive-border: hsl(var(--destructive));
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/**
+ * Using the elevate system.
+ * Automatic contrast adjustment.
+ *
+ * <element className="hover-elevate" />
+ * <element className="active-elevate-2" />
+ *
+ * // Using the tailwind utility when a data attribute is "on"
+ * <element className="toggle-elevate data-[state=on]:toggle-elevated" />
+ * // Or manually controlling the toggle state
+ * <element className="toggle-elevate toggle-elevated" />
+ *
+ * Elevation systems have to handle many states.
+ * - not-hovered, vs. hovered vs. active  (three mutually exclusive states)
+ * - toggled or not
+ * - focused or not (this is not handled with these utilities)
+ *
+ * Even without handling focused or not, this is six possible combinations that
+ * need to be distinguished from eachother visually.
+ */
+@layer utilities {
+
+  /* Hide ugly search cancel button in Chrome until we can style it properly */
+  input[type="search"]::-webkit-search-cancel-button {
+    @apply hidden;
+  }
+
+  /* Placeholder styling for contentEditable div */
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+  }
+
+  /* .no-default-hover-elevate/no-default-active-elevate is an escape hatch so consumers of
+   * buttons/badges can remove the automatic brightness adjustment on interactions
+   * and program their own. */
+  .no-default-hover-elevate {}
+
+  .no-default-active-elevate {}
+
+
+  /**
+   * Toggleable backgrounds go behind the content. Hoverable/active goes on top.
+   * This way they can stack/compound. Both will overlap the parent's borders!
+   * So borders will be automatically adjusted both on toggle, and hover/active,
+   * and they will be compounded.
+   */
+  .toggle-elevate::before,
+  .toggle-elevate-2::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    /*border-radius: inherit;   match rounded corners */
+    border-radius: inherit;
+    z-index: -1;
+    /* sits behind content but above backdrop */
+  }
+
+  .toggle-elevate.toggle-elevated::before {
+    background-color: var(--elevate-2);
+  }
+
+  /* If there's a 1px border, adjust the inset so that it covers that parent's border */
+  .border.toggle-elevate::before {
+    inset: -1px;
+  }
+
+  /* Does not work on elements with overflow:hidden! */
+  .hover-elevate:not(.no-default-hover-elevate),
+  .active-elevate:not(.no-default-active-elevate),
+  .hover-elevate-2:not(.no-default-hover-elevate),
+  .active-elevate-2:not(.no-default-active-elevate) {
+    position: relative;
+    z-index: 0;
+  }
+
+  .hover-elevate:not(.no-default-hover-elevate)::after,
+  .active-elevate:not(.no-default-active-elevate)::after,
+  .hover-elevate-2:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:not(.no-default-active-elevate)::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    /*border-radius: inherit;   match rounded corners */
+    border-radius: inherit;
+    z-index: 999;
+    /* sits in front of content */
+  }
+
+  .hover-elevate:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-1);
+  }
+
+  .hover-elevate-2:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-2);
+  }
+
+  /* If there's a 1px border, adjust the inset so that it covers that parent's border */
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
+    inset: -1px;
+  }
+
+  /* Pride Mode Styles */
+  .pride-toggle-switch-container {
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+  
+  body.pride-mode .pride-toggle-switch-container {
+    color: white;
+    text-shadow: 0 0 8px rgba(0,0,0,0.5);
+  }
+  
+  .pride-toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+    cursor: pointer;
+  }
+  
+  .pride-toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .pride-switch-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 28px;
+    transition: all 0.4s ease;
+  }
+  
+  .pride-switch-thumb {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  
+  .pride-toggle-switch input:checked + .pride-switch-track {
+    background: linear-gradient(45deg, #e40e78, #ff6b35, #f7931d, #ffd23f, #72c837, #2e86ab, #8e44ad);
+    background-size: 300% 300%;
+    animation: pride-gradient 3s ease infinite;
+  }
+  
+  .pride-toggle-switch input:checked + .pride-switch-track .pride-switch-thumb {
+    transform: translateX(24px);
+  }
+
+  @keyframes pride-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .pride-text-animated {
+    background: linear-gradient(45deg, #e40e78, #ff6b35, #f7931d, #ffd23f, #72c837, #2e86ab, #8e44ad);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: pride-text-gradient 3s ease infinite;
+  }
+
+  @keyframes pride-text-gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  body.pride-mode {
+    background: linear-gradient(-45deg, #e40e78, #ff6b35, #f7931d, #ffd23f, #72c837, #2e86ab, #8e44ad, #e40e78);
+    background-size: 300% 300%;
+    animation: pride-bg-shift 8s linear infinite;
+    background-attachment: scroll;
+  }
+
+  @keyframes pride-bg-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .pride-mode #main-nav {
+    background: linear-gradient(90deg,
+      rgba(228, 14, 120, 0.9),
+      rgba(255, 107, 53, 0.9),
+      rgba(247, 147, 29, 0.9),
+      rgba(255, 210, 63, 0.9),
+      rgba(114, 200, 55, 0.9),
+      rgba(46, 134, 171, 0.9),
+      rgba(142, 68, 173, 0.9)
+    ) !important;
+    backdrop-filter: blur(10px);
+  }
+
+  .pride-mode h1,
+  .pride-mode h2,
+  .pride-mode h3 {
+    background: linear-gradient(45deg, #e40e78, #ff6b35, #f7931d, #ffd23f, #72c837, #2e86ab, #8e44ad);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow-wave 2s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+
+  @keyframes rainbow-wave {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .free-agents-btn {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+    color: white;
+    border: 2px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .free-agents-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0891b2 100%);
+  }
+
+  .pride-mode .free-agents-btn {
+    background: linear-gradient(45deg, #e40e78, #ff6b35, #f7931d, #ffd23f, #72c837, #2e86ab, #8e44ad) !important;
+    background-size: 300% 300% !important;
+    animation: pride-gradient 2s ease infinite !important;
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
+    border: 2px solid white !important;
+  }
+
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .rainbow-button {
+    background: linear-gradient(135deg, #FF3E81, #FFD166 50%, #00A7C7);
+    color: #ffffff;
+    border: none;
+  }
+
+  .rainbow-button:hover {
+    filter: brightness(1.04);
+  }
+
+  .rainbow-button:active {
+    filter: brightness(0.97);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* === Trade Winds Sunset — palette tokens === */
+:root{
+  --pacific-navy:#0B1F2A;  /* primary background, headings */
+  --lagoon:#00A7C7;        /* links, CTAs, highlights */
+  --hibiscus:#FF3E81;      /* accent buttons, tags */
+  --plumeria:#FFD166;      /* chips, badges */
+  --sand:#F7EFEA;          /* cards/background tint */
+  --white:#FFFFFF;
+}
+
+/* === Typography system === */
+html{color-scheme:light dark;}
+body{
+  font-family: Inter,"Noto Sans",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  color:var(--pacific-navy);
+  background:var(--sand);
+}
+h1,h2,h3,.display,.hero h1{
+  font-family:"Barlow Condensed",system-ui,sans-serif;
+  letter-spacing:.01em;
+  text-wrap:balance;
+}
+
+/* === Emoji font handling === */
+/* Use this class ONLY where colored emoji are needed */
+.emoji-text {
+  font-family: "Barlow Condensed", "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Segoe UI Symbol", system-ui, sans-serif;
+  font-variant-emoji: emoji;
+}
+
+/* Font smoothing for better rendering */
+body, h1, h2, h3, span, p, div {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Make numerals behave consistently */
+body, h1, h2, h3, p {
+  font-variant-numeric: lining-nums proportional-nums;
+}
+
+/* Utility to keep date/time tokens together */
+.nowrap {
+  white-space: nowrap;
+}
+
+/* === Links & buttons === */
+a,.link{color:var(--lagoon);text-decoration-thickness:.1em;}
+a:hover{opacity:.9}
+.btn,button,.cta{
+  background:var(--lagoon);
+  color:var(--pacific-navy);
+  border-radius:999px;
+  padding:.75rem 1.1rem;
+  font-weight:700;
+  border:0;
+}
+.btn--accent,.tag--accent{
+  background:var(--hibiscus);
+  color:var(--white);
+}
+:focus-visible{
+  outline:3px solid var(--lagoon);
+  outline-offset:2px;
+}
+
+/* === Header/Nav === */
+header, .site-header, .navbar{
+  background:var(--pacific-navy);
+  color:var(--white);
+  border-bottom:1px solid color-mix(in oklab,var(--white) 15%,transparent);
+}
+.navbar a{color:var(--white)}
+
+/* === Hero (keeps existing content, updates styling) === */
+.hero{
+  color:var(--white);
+  background:
+    linear-gradient(135deg,
+      color-mix(in oklab,var(--hibiscus) 85%,transparent),
+      color-mix(in oklab,var(--plumeria) 70%,transparent) 50%,
+      color-mix(in oklab,var(--lagoon) 85%,transparent) 100%),
+    var(--pacific-navy);
+}
+
+/* === Cards, chips, badges === */
+.card{
+  background:var(--white);
+  border:1px solid color-mix(in oklab,var(--pacific-navy) 12%,transparent);
+  box-shadow:0 6px 24px rgba(0,0,0,.06);
+  border-radius:14px;
+}
+.chip,.badge{
+  background:var(--plumeria);
+  color:var(--pacific-navy);
+  border-radius:999px;
+  padding:.3rem .8rem;
+  font-weight:700;
+}
+
+/* === Footer === */
+footer, .site-footer{
+  background:var(--pacific-navy);
+  color:var(--white);
+}
+
+/* === Motion & media === */
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important;}
+}
+
+/* === Hawaiian diacritics check (no visual change; ensures font fallback) === */
+.lang-haw, .hawaii-test::after{content:" Aikāne Hawaiʻi";font-family:Inter,"Noto Sans",system-ui;}
+
+/* === Fade in animations === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
