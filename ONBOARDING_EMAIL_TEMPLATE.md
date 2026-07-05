@@ -11,6 +11,7 @@ Before drafting the email, the agent should inspect the repo for:
 3. any project name or site name visible in README, agent files, package metadata, or repo structure
 4. any Git repository URL or source-of-truth hints visible in README, Git config, or project docs
 5. any Netlify usage visible from files such as `netlify.toml`, deploy scripts, docs, or agent instructions
+6. any live production domain visible in README or agent files
 
 If a value is not visible in the repo, the email should say that access is needed for "the Git repository used for this site" or "the Netlify site/team used for this site" rather than inventing details.
 
@@ -113,6 +114,7 @@ Include the discovered values here when visible in the repo:
 - Default website project folder
 - Git repo or source-of-truth hint
 - Netlify/site deploy hint
+- Live production domain
 
 Thanks,
 [YOUR NAME]

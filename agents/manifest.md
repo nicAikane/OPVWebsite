@@ -7,8 +7,11 @@ This file is the canonical instruction source for AI coding assistants used in t
 - GitHub repo: `https://github.com/nicAikane/OPVWebsite`
 - Netlify project: `oahu-pride-volleyball`
 - Netlify URL: `https://oahu-pride-volleyball.netlify.app`
-- Custom domain: `https://oahupridevolleyball.com`
+- Live production domain: `https://oahupridevolleyball.com`
+- Redirect domain: `https://www.oahupridevolleyball.com`
 - Legacy upstream repo: `https://github.com/richAikane/OPVWebsite`
+
+The live production site is the custom domain above. The Netlify URL is still useful for deploy verification and admin workflows, but production checks should default to the custom domain.
 
 ## Mission
 

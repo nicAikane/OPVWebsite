@@ -13,8 +13,9 @@ Use this checklist when setting up a new person to maintain the OPV website with
 ## Current Project References
 
 - GitHub repo: https://github.com/nicAikane/OPVWebsite
-- Netlify site: https://oahu-pride-volleyball.netlify.app
-- Custom domain target: `oahupridevolleyball.com`
+- Netlify site admin/default URL: https://oahu-pride-volleyball.netlify.app
+- Live production domain: `https://oahupridevolleyball.com`
+- Redirect domain: `https://www.oahupridevolleyball.com`
 
 ## Git Access
 
@@ -34,7 +35,7 @@ Netlify access is needed if the operator will:
 - inspect deploy history or site configuration
 - publish to production
 
-The current Netlify production site for this project is `oahu-pride-volleyball`.
+The current Netlify project for this site is `oahu-pride-volleyball`, and its live production domain is `https://oahupridevolleyball.com`.
 
 Without Netlify access, the operator can still make and verify local changes, but someone else must handle deployment.
 

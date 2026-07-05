@@ -8,9 +8,10 @@ Oʻahu Pride Volleyball’s marketing site and Express-backed API, built with Vi
 - Netlify project: `oahu-pride-volleyball`
 - Netlify URL: https://oahu-pride-volleyball.netlify.app
 - Custom domain: https://oahupridevolleyball.com
+- Redirect domain: https://www.oahupridevolleyball.com
 - Legacy upstream repo: https://github.com/richAikane/OPVWebsite
 
-The custom domain should point to the Netlify site above after DNS cutover.
+The production site is live at the custom domain above. The Netlify URL remains useful for admin access, deploy verification, and troubleshooting.
 
 ## Getting started
 
