@@ -7,6 +7,7 @@ This file is the canonical instruction source for AI coding assistants used in t
 - GitHub repo: `https://github.com/nicAikane/OPVWebsite`
 - Netlify project: `oahu-pride-volleyball`
 - Netlify URL: `https://oahu-pride-volleyball.netlify.app`
+- Custom domain: `https://oahupridevolleyball.com`
 - Legacy upstream repo: `https://github.com/richAikane/OPVWebsite`
 
 ## Mission

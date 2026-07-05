@@ -7,6 +7,7 @@ This project uses a guided helper workflow for AI-assisted website maintenance.
 - GitHub repo: `https://github.com/nicAikane/OPVWebsite`
 - Netlify project: `oahu-pride-volleyball`
 - Netlify URL: `https://oahu-pride-volleyball.netlify.app`
+- Custom domain: `https://oahupridevolleyball.com`
 - Legacy upstream repo: `https://github.com/richAikane/OPVWebsite`
 
 Assistants should treat the `nicAikane/OPVWebsite` repository and the `oahu-pride-volleyball` Netlify project as the current source-of-truth infrastructure unless the user explicitly says otherwise.

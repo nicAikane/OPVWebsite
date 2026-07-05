@@ -14,7 +14,7 @@ Use this checklist when setting up a new person to maintain the OPV website with
 
 - GitHub repo: https://github.com/nicAikane/OPVWebsite
 - Netlify site: https://oahu-pride-volleyball.netlify.app
-- Custom domain target: `oahupridevolleyball.org`
+- Custom domain target: `oahupridevolleyball.com`
 
 ## Git Access
 

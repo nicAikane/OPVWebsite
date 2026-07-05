@@ -2,9 +2,8 @@ export const siteMeta = {
   title: "Oʻahu Pride Volleyball — Season 5",
   description:
     "Season 5 begins August 29, 2026. Early registration closes July 31, 2026, with Competitive 4v4, Intermediate 6v6, and Social 6v6 divisions.",
-  // Update this when the final domain is known. Runtime code will set canonical/og:url from here.
-  canonicalUrl: "https://oahupridevolleyball.org/",
-  ogImage: "https://oahupridevolleyball.org/season-5-banner.png",
+  canonicalUrl: "https://oahupridevolleyball.com/",
+  ogImage: "https://oahupridevolleyball.com/season-5-banner.png",
 };
 
 export const season = {
@@ -25,7 +24,7 @@ export const season = {
 };
 
 export const links = {
-  home: "https://oahu-pride-volleyball.netlify.app",
+  home: "https://oahupridevolleyball.com",
   donate:
     "https://www.zeffy.com/fundraising/support-season-4-oahu-pride-volleyball-league",
   rules:
