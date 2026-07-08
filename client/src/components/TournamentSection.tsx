@@ -20,6 +20,7 @@ export default function TournamentSection() {
               <h3 className="text-lg font-semibold text-gray-800 mb-3">Season Snapshot</h3>
               <ul className="text-sm md:text-base text-gray-700 space-y-2">
                 <li>First game: {season.firstGame}</li>
+                <li>Labor Day weekend bye week: {season.laborDayByeWeek}</li>
                 <li>Honolulu Pride bye week: {season.byeWeek}</li>
                 <li>Playoffs: {season.playoffs}</li>
                 <li>Early registration closes: {season.earlyRegistrationCloses}</li>
@@ -43,6 +44,15 @@ export default function TournamentSection() {
                 {season.divisions.map((division) => (
                   <li key={division}>{division}</li>
                 ))}
+              </ul>
+            </div>
+
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6" data-testid="card-tournament-notes">
+              <h3 className="text-lg font-semibold text-gray-800 mb-3">Season Notes</h3>
+              <ul className="text-sm md:text-base text-gray-700 space-y-2">
+                <li>No new teams can be created after {season.newTeamDeadline}.</li>
+                <li>A small number of slots for financial assistance may be available on a limited basis.</li>
+                <li>Interested players should have their captains reach out to the board for more information.</li>
               </ul>
             </div>
           </div>

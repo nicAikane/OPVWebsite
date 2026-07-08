@@ -25,6 +25,10 @@ export default function ScheduleSection() {
             <div className="text-xs uppercase tracking-wide text-gray-500">First game</div>
             <div className="mt-2 text-xl font-semibold text-gray-800">{season.firstGame}</div>
           </div>
+          <div className="bg-white border border-gray-200 rounded-2xl px-6 py-5" data-testid="card-date-labor-day-bye-week">
+            <div className="text-xs uppercase tracking-wide text-gray-500">Labor Day weekend bye week</div>
+            <div className="mt-2 text-xl font-semibold text-gray-800">{season.laborDayByeWeek}</div>
+          </div>
           <div className="bg-white border border-gray-200 rounded-2xl px-6 py-5" data-testid="card-date-bye-week">
             <div className="text-xs uppercase tracking-wide text-gray-500">Honolulu Pride bye week</div>
             <div className="mt-2 text-xl font-semibold text-gray-800">{season.byeWeek}</div>

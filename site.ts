@@ -13,11 +13,13 @@ export const season = {
   endISO: "2026-11-21",
   rangeShort: "Aug 29–Nov 21, 2026",
   firstGame: "August 29, 2026",
+  laborDayByeWeek: "September 5, 2026",
   byeWeek: "October 17, 2026",
   playoffs: "November 21, 2026",
   earlyRegistrationCloses: "July 31, 2026",
   regularRegistrationPrice: "$60.00",
   lateRegistrationPrice: "$75.00",
+  newTeamDeadline: "August 22, 2026",
   divisions: ["Competitive 4v4", "Intermediate 6v6", "Social 6v6"],
   clinics: "TBD",
   parties: "TBD",
@@ -31,7 +33,8 @@ export const links = {
     "https://www.aikaneohana.com/_files/ugd/952afa_30cbb111dd5a4dfbb12461685f0f4c42.pdf",
   photos: "https://ericzmartin.com/",
   teamSideline: "https://teamsideline.com/sites/aikaneohana/schedules",
-  freeAgent: "https://docs.google.com/forms/d/e/1FAIpQLSdx7Q-7YNEY38GcMcGcIPO7qaFs0dGv8P-cIBTigGxFXY0QRA/viewform?usp=publish-editor",
+  freeAgent:
+    "https://docs.google.com/forms/d/e/1FAIpQLSfD0wuLOqmfYJ92MwLru6-G1JSyCyu0KAKq8ZSd12TybJxIMA/viewform?pli=1",
   // Tournament site temporarily offline
   tournament: "",
   store: "https://www.bonfire.com/store/oahu-pride-volleyball/?utm_source=copy_link&utm_medium=store_page_share&utm_campaign=oahu-pride-volleyball&utm_content=default",
