@@ -1,9 +1,10 @@
 export const siteMeta = {
-  title: "Oʻahu Pride Volleyball — Season 5",
+  title: "Oʻahu Pride Volleyball | Honolulu LGBTQ+ Grass Volleyball League",
   description:
-    "Season 5 begins August 29, 2026. Early registration closes July 31, 2026, with Competitive 4v4, Intermediate 6v6, and Social 6v6 divisions.",
+    "Oʻahu Pride Volleyball is Honolulu's inclusive grass volleyball league. Season 5 starts August 29, 2026 with Competitive 4v4, Intermediate 6v6, and Social 6v6 divisions.",
   canonicalUrl: "https://oahupridevolleyball.com/",
   ogImage: "https://oahupridevolleyball.com/season-5-banner.png",
+  siteName: "Oʻahu Pride Volleyball",
 };
 
 export const season = {
