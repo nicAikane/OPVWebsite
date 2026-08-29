@@ -1,4 +1,5 @@
 import { Users, Shirt, BookOpen } from 'lucide-react';
+import { links } from '@/lib/site';
 
 const resources = [
   {
@@ -8,9 +9,15 @@ const resources = [
     color: "blue",
   },
   {
-    title: "OPV Rule Book",
+    title: "4v4 Rules",
     Icon: BookOpen,
-    link: "https://952afa62-c5c6-46d2-99a2-68410ce0e296.usrfiles.com/ugd/952afa_30cbb111dd5a4dfbb12461685f0f4c42.pdf",
+    link: links.rules4v4,
+    color: "green",
+  },
+  {
+    title: "6v6 Rules",
+    Icon: BookOpen,
+    link: links.rules6v6,
     color: "green",
   },
 ];
@@ -44,7 +51,7 @@ export default function CaptainsCornerSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           {resources.map((resource, index) => {
             const Icon = resource.Icon;
             return (

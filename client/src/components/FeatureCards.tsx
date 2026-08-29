@@ -13,16 +13,14 @@ export default function FeatureCards() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-card border border-card-border rounded-2xl p-8 shadow-sm hover-lift text-center" data-testid="card-schedules">
-            <h3 className="text-2xl font-display font-bold text-gray-800 mb-4">Schedules & Standings</h3>
-            <p className="text-gray-700 mb-6">Visit TeamSideline for registration, schedules, and season updates.</p>
+            <h3 className="text-2xl font-display font-bold text-gray-800 mb-4">Division Schedules & Standings</h3>
+            <p className="text-gray-700 mb-6">Choose your division for schedule, standings, scores, and results.</p>
             <a 
-              href={links.teamSideline}
-              target="_blank" 
-              rel="noopener noreferrer"
+              href="#schedule"
               className="rainbow-button text-white font-bold px-8 py-4 rounded-full text-lg shadow-lg hover-lift transition-all duration-300 inline-block"
-              data-testid="button-view-schedule"
+              data-testid="button-view-division-schedules"
             >
-              Visit TeamSideline
+              Choose Division
             </a>
           </div>
 

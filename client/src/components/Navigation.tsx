@@ -13,9 +13,9 @@ export default function Navigation() {
   const navLinks = [
     { href: links.home, label: "Home", testId: "link-home" },
     { href: links.donate, label: "Donate", testId: "link-donate" },
-    { href: links.rules, label: "Rules", testId: "link-rules" },
+    { href: "#rules", label: "Rules", testId: "link-rules", isAnchor: true },
     { href: links.photos, label: "Photos", testId: "link-photos" },
-    { href: "#season", label: "Season", testId: "link-tournament", isAnchor: true },
+    { href: "#schedule", label: "Schedules", testId: "link-schedules", isAnchor: true },
     { href: links.store, label: "Store", testId: "link-store" },
     { href: links.aikaneOhana, label: "Aikāne ʻOhana", testId: "link-aikane" },
     { href: "#sponsors", label: "Sponsors", testId: "link-sponsors", isAnchor: true },

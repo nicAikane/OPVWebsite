@@ -10,102 +10,95 @@ export default function TournamentSection() {
           </h2>
           <div className="w-24 h-1 mx-auto rounded-full mb-6" style={{ background: 'linear-gradient(135deg, #FF3E81, #FFD166 50%, #00A7C7)' }}></div>
           <p className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto" data-testid="text-tournament-description">
-            Registration details and division information for the upcoming season.
+            Season links, dates, and division information for players and captains.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 items-start">
-          <div className="space-y-6">
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6" data-testid="card-tournament-details">
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Season Snapshot</h3>
-              <ul className="text-sm md:text-base text-gray-700 space-y-2">
-                <li>First game: {season.firstGame}</li>
-                <li>Labor Day weekend bye week: {season.laborDayByeWeek}</li>
-                <li>Honolulu Pride bye week: {season.byeWeek}</li>
-                <li>Playoffs: {season.playoffs}</li>
-                <li>Early registration closes: {season.earlyRegistrationCloses}</li>
-                <li>Clinics: {season.clinics}</li>
-                <li>Parties: {season.parties}</li>
-              </ul>
-            </div>
-
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6" data-testid="card-tournament-windows">
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Registration Pricing</h3>
-              <ul className="text-sm md:text-base text-gray-700 space-y-2">
-                <li>Early registration available through {season.earlyRegistrationCloses}</li>
-                <li>Regular registration: {season.regularRegistrationPrice}</li>
-                <li>Late registration: {season.lateRegistrationPrice}</li>
-              </ul>
-            </div>
-
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6" data-testid="card-tournament-divisions">
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Divisions</h3>
-              <ul className="text-sm md:text-base text-gray-700 space-y-2">
-                {season.divisions.map((division) => (
-                  <li key={division}>{division}</li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6" data-testid="card-tournament-notes">
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Season Notes</h3>
-              <ul className="text-sm md:text-base text-gray-700 space-y-2">
-                <li>No new teams can be created after {season.newTeamDeadline}.</li>
-                <li>A small number of slots for financial assistance may be available on a limited basis.</li>
-                <li>Interested players should have their captains reach out to the board for more information.</li>
-              </ul>
-            </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-stretch">
+          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 h-full" data-testid="card-tournament-details">
+            <h3 className="text-lg font-semibold text-gray-800 mb-3">Season Snapshot</h3>
+            <ul className="text-sm md:text-base text-gray-700 space-y-2">
+              <li>First game: {season.firstGame}</li>
+              <li>Labor Day weekend bye week: {season.laborDayByeWeek}</li>
+              <li>Honolulu Pride bye week: {season.byeWeek}</li>
+              <li>Playoffs: {season.playoffs}</li>
+            </ul>
           </div>
 
-          <div className="space-y-6">
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6" data-testid="card-tournament-registration">
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Registration</h3>
-              <ol className="text-sm md:text-base text-gray-700 space-y-2 list-decimal list-inside">
-                <li>Captains register their team in Team Sideline.</li>
-                <li>Captains invite players to register.</li>
-                <li>Players register, pay, and sign the waiver in Team Sideline.</li>
-              </ol>
-              <p className="text-xs text-gray-600 mt-3">Players should use the invite link from their captain.</p>
-              <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-                Early registration closes on {season.earlyRegistrationCloses}. Players should not create a team themselves; they should use the invite from their captain.
-              </div>
-              <div className="mt-4 flex flex-wrap gap-3">
-                <a
-                  href={links.teamSideline}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full bg-gray-800 px-5 py-2 text-sm font-semibold text-white hover:bg-gray-900 transition-colors duration-300"
-                  data-testid="button-team-registration"
-                >
-                  Captain Team Registration
-                </a>
-              </div>
-            </div>
+          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 h-full" data-testid="card-tournament-links">
+            <h3 className="text-lg font-semibold text-gray-800 mb-3">Division Schedules & Standings</h3>
+            <p className="text-sm md:text-base text-gray-700 mb-4">
+              Each division has its own public TeamSideline page for the schedule, standings, scores, and results.
+            </p>
+            <a
+              href="#schedule"
+              className="inline-flex items-center justify-center rounded-full bg-gray-800 px-5 py-2 text-sm font-semibold text-white hover:bg-gray-900 transition-colors duration-300"
+              data-testid="button-season-division-schedules"
+            >
+              Choose Division
+            </a>
+          </div>
 
-            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6" data-testid="card-tournament-free-agent">
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">Free Agent Registration</h3>
-              <p className="text-sm md:text-base text-gray-700 mb-3">
-                Don't have a team? No problem — we'll find you one. Submit the form below and the OPV board will do their best to place you on a team that fits your skill level.
-              </p>
-              <ol className="text-sm md:text-base text-gray-700 space-y-2 list-decimal list-inside mb-4">
-                <li>Fill out the Free Agent Registration form.</li>
-                <li>The OPV board reviews submissions and matches players to teams based on skill level.</li>
-                <li>You'll be contacted directly once a placement is found.</li>
-              </ol>
-              <p className="text-xs text-gray-500 mb-4">Placement is not guaranteed, but we do our best to find everyone a spot. The sooner you register, the better your chances!</p>
-              <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900 mb-4">
-                Free agents should use the form below — do <strong>not</strong> register through Team Sideline until you receive a personal email directly from Team Sideline.
-              </div>
+          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 h-full" data-testid="card-tournament-rules">
+            <h3 className="text-lg font-semibold text-gray-800 mb-3">Rules</h3>
+            <ul className="text-sm md:text-base text-gray-700 space-y-2">
+              <li>Competitive teams should review the 4v4 rules.</li>
+              <li>Intermediate and Social teams should review the 6v6 rules.</li>
+            </ul>
+            <div className="mt-4 flex flex-wrap gap-3">
               <a
-                href={links.freeAgent}
+                href={links.rules4v4}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full bg-gray-800 px-5 py-2 text-sm font-semibold text-white hover:bg-gray-900 transition-colors duration-300"
-                data-testid="button-free-agent-registration"
+                data-testid="button-season-rules-4v4"
               >
-                Register as a Free Agent
+                4v4 Rules
+              </a>
+              <a
+                href={links.rules6v6}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full border border-gray-300 bg-white px-5 py-2 text-sm font-semibold text-gray-800 hover:border-gray-500 transition-colors duration-300"
+                data-testid="button-season-rules-6v6"
+              >
+                6v6 Rules
               </a>
             </div>
+          </div>
+
+          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 h-full" data-testid="card-tournament-divisions">
+            <h3 className="text-lg font-semibold text-gray-800 mb-3">Divisions</h3>
+            <ul className="text-sm md:text-base text-gray-700 space-y-2">
+              {season.divisions.map((division) => (
+                <li key={division}>{division}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 h-full" data-testid="card-tournament-notes">
+            <h3 className="text-lg font-semibold text-gray-800 mb-3">Season Notes</h3>
+            <ul className="text-sm md:text-base text-gray-700 space-y-2">
+              <li>No new teams can be created after {season.newTeamDeadline}.</li>
+              <li>A small number of slots for financial assistance may be available on a limited basis.</li>
+              <li>Interested players should have their captains reach out to the board for more information.</li>
+            </ul>
+          </div>
+
+          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 h-full" data-testid="card-tournament-team-sideline">
+            <h3 className="text-lg font-semibold text-gray-800 mb-3">TeamSideline</h3>
+            <p className="text-sm md:text-base text-gray-700 mb-4">
+              Captains and players should use TeamSideline for team information and season communications.
+            </p>
+            <a
+              href={links.teamSideline}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full bg-gray-800 px-5 py-2 text-sm font-semibold text-white hover:bg-gray-900 transition-colors duration-300"
+              data-testid="button-team-sideline"
+            >
+              Visit TeamSideline
+            </a>
           </div>
         </div>
       </div>

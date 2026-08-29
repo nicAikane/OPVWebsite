@@ -14,13 +14,23 @@ export default function Footer() {
             <p data-testid="text-footer-copyright">© Oʻahu Pride Volleyball / Aikāne ʻOhana (501(c)(3))</p>
             <p className="mt-1 space-x-4">
               <a 
-                href={links.rules}
+                href={links.rules4v4}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="hover:underline"
-                data-testid="link-footer-rules"
+                data-testid="link-footer-rules-4v4"
               >
-                Rules
+                4v4 Rules
+              </a>
+              <span>•</span>
+              <a
+                href={links.rules6v6}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+                data-testid="link-footer-rules-6v6"
+              >
+                6v6 Rules
               </a>
               <span>•</span>
               <a 

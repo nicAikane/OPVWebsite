@@ -3,6 +3,8 @@ import type { ListenOptions } from "net";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
+type ReusableListenOptions = ListenOptions & { reusePort?: boolean };
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -62,7 +64,7 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || '5000', 10);
-  const listenOptions: ListenOptions = {
+  const listenOptions: ReusableListenOptions = {
     port,
     host: "0.0.0.0",
   };

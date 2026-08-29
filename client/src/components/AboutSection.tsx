@@ -30,7 +30,7 @@ export default function AboutSection() {
               Our community celebrates diversity, fosters friendship, and creates lasting memories on and off the court. From beginners to all-stars, everyone has a place in our ʻohana!
             </p>
             <p className="text-base md:text-lg text-gray-700 leading-relaxed font-semibold" data-testid="text-season-info">
-              {season.name} begins on {season.firstGame}. Early registration closes {season.earlyRegistrationCloses}, and clinics and parties will be announced soon.
+              {season.name} runs {season.rangeShort}.
             </p>
             <div className="flex flex-wrap gap-4 text-sm justify-center sm:justify-start">
               <span className="bg-primary/10 text-primary px-3 py-1 rounded-full" data-testid="badge-inclusive">Inclusive</span>

@@ -22,20 +22,18 @@ export const season = {
   lateRegistrationPrice: "$75.00",
   newTeamDeadline: "August 22, 2026",
   divisions: ["Competitive 4v4", "Intermediate 6v6", "Social 6v6"],
-  clinics: "TBD",
-  parties: "TBD",
 };
 
 export const links = {
   home: "https://oahupridevolleyball.com",
   donate:
     "https://www.zeffy.com/en-US/donation-form/season-5-oahu-pride-volleyball-league/",
-  rules:
+  rules6v6:
     "https://www.aikaneohana.com/_files/ugd/952afa_30cbb111dd5a4dfbb12461685f0f4c42.pdf",
+  rules4v4:
+    "https://docs.google.com/document/d/1GsagHqY8sy76g-_L9ZVfo8GG1F4BqN11AyyvoUw3X1o/edit",
   photos: "https://ericzmartin.smugmug.com/",
   teamSideline: "https://teamsideline.com/aikaneohana",
-  freeAgent:
-    "https://docs.google.com/forms/d/e/1FAIpQLSfD0wuLOqmfYJ92MwLru6-G1JSyCyu0KAKq8ZSd12TybJxIMA/viewform?pli=1",
   // Tournament site temporarily offline
   tournament: "",
   store: "https://www.bonfire.com/store/oahu-pride-volleyball/?utm_source=copy_link&utm_medium=store_page_share&utm_campaign=oahu-pride-volleyball&utm_content=default",
@@ -47,10 +45,125 @@ export const links = {
     "https://www.zeffy.com/en-US/donation-form/season-5-oahu-pride-volleyball-league/",
 };
 
+export const divisionSchedules = [
+  {
+    name: "Tapa's Waikiki Social Division",
+    shortName: "Social",
+    level: "C",
+    format: "6v6",
+    url: "https://teamsideline.com/sites/aikaneohana/schedule/726481/0/1/C-Tapas-Waikiki-Social-Division",
+  },
+  {
+    name: "Wang Chung's Lower Intermediate Division",
+    shortName: "Lower Intermediate",
+    level: "B",
+    format: "6v6",
+    url: "https://teamsideline.com/sites/aikaneohana/schedule/726480/0/1/B-Wang-Chungs-Lower-Intermediate-Division",
+  },
+  {
+    name: "Wang Chung's Upper Intermediate Division",
+    shortName: "Upper Intermediate",
+    level: "B",
+    format: "6v6",
+    url: "https://teamsideline.com/sites/aikaneohana/schedule/740287/0/1/B-Wang-Chungs-Upper-Intermediate-Division",
+  },
+  {
+    name: "Eric Z-Martin Photography Competitive Division",
+    shortName: "Competitive",
+    level: "BB",
+    format: "4v4",
+    url: "https://teamsideline.com/sites/aikaneohana/schedule/726479/0/1/BB-Eric-Z-Martin-Photography-Competitive-Division",
+  },
+];
+
 export type Sponsor = {
   name: string;
   logo: string; // path under /public
   website: string | null;
+  tier: "Maile Sponsors" | "Pikake Sponsors" | "Pua Melia Circle";
+  divisionName?: string;
 };
 
-export const sponsors: Sponsor[] = [];
+export const sponsorTiers = [
+  "Maile Sponsors",
+  "Pikake Sponsors",
+  "Pua Melia Circle",
+] as const;
+
+export const sponsors: Sponsor[] = [
+  {
+    name: "Eric Z-Martin Photography",
+    logo: "/eric-z-martin.jpg",
+    website: links.photos,
+    tier: "Maile Sponsors",
+    divisionName: "Eric Z-Martin Photography Competitive Division",
+  },
+  {
+    name: "Wang Chung's",
+    logo: "/wang-chungs.png",
+    website: null,
+    tier: "Maile Sponsors",
+    divisionName: "Wang Chung's Intermediate (Lower & Upper) Division",
+  },
+  {
+    name: "Tapa's Waikiki",
+    logo: "/tapas-waikiki.jpg",
+    website: null,
+    tier: "Maile Sponsors",
+    divisionName: "Tapa's Waikiki Social Division",
+  },
+  {
+    name: "Highgate Hotels",
+    logo: "/highgate-hotels.png",
+    website: null,
+    tier: "Pikake Sponsors",
+  },
+  {
+    name: "Scarlet Honolulu",
+    logo: "/scarlet-honolulu.png",
+    website: null,
+    tier: "Pikake Sponsors",
+  },
+  {
+    name: "Hula's Waikiki",
+    logo: "/hulas-waikiki.png",
+    website: null,
+    tier: "Pikake Sponsors",
+  },
+  {
+    name: "Team Mimosa",
+    logo: "/team-mimosa.png",
+    website: null,
+    tier: "Pikake Sponsors",
+  },
+  {
+    name: "Halau Hula O Ikemanu",
+    logo: "/halau-hula-o-ikemanu.jpg",
+    website: null,
+    tier: "Pikake Sponsors",
+  },
+  {
+    name: "NOA Botanicals",
+    logo: "/noa-botanicals.jpg",
+    website: null,
+    tier: "Pikake Sponsors",
+  },
+  {
+    name: "FlyGuy Travels",
+    logo: "/flyguy-travels.jpg",
+    website: null,
+    tier: "Pua Melia Circle",
+  },
+  {
+    name: "Chiko's Tavern",
+    logo: "/chikos-tavern.jpeg",
+    website: null,
+    tier: "Pua Melia Circle",
+  },
+  {
+    name: "Tanoa Events",
+    logo: "/tanoa-events.jpeg",
+    website: null,
+    tier: "Pua Melia Circle",
+  },
+];

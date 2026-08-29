@@ -1,4 +1,7 @@
-import { sponsors, links } from '@/lib/site';
+import { sponsorTiers, sponsors, links } from '@/lib/site';
+
+const slugify = (value: string) =>
+  value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 export default function SponsorsSection() {
   return (
@@ -14,54 +17,61 @@ export default function SponsorsSection() {
           </p>
         </div>
 
-        {sponsors.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
-            {sponsors.map((sponsor, index) => (
-              sponsor.website ? (
-                <a
-                  key={index}
-                  href={sponsor.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white border border-gray-100 p-6 flex flex-col items-center text-center hover:shadow-lg hover:border-gray-300 transition-all duration-300 min-h-[220px] animate-fade-in-up"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                  data-testid={`sponsor-card-${index}`}
-                >
-                  <img
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    className="w-full h-[140px] object-contain mb-4"
-                    loading="lazy"
-                  />
-                  <div className="text-base text-gray-700 font-medium mt-auto">
-                    {sponsor.name}
-                  </div>
-                </a>
-              ) : (
-                <div
-                  key={index}
-                  className="bg-white border border-gray-100 p-6 flex flex-col items-center text-center min-h-[220px] animate-fade-in-up"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                  data-testid={`sponsor-card-${index}`}
-                >
-                  <img
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    className="w-full h-[140px] object-contain mb-4"
-                    loading="lazy"
-                  />
-                  <div className="text-base text-gray-700 font-medium mt-auto">
-                    {sponsor.name}
-                  </div>
+        <div className="space-y-12 max-w-6xl mx-auto mb-12">
+          {sponsorTiers.map((tier) => {
+            const tierSponsors = sponsors.filter((sponsor) => sponsor.tier === tier);
+
+            return (
+              <div key={tier} data-testid={`sponsor-tier-${slugify(tier)}`}>
+                <h3 className="text-xl md:text-2xl font-display font-bold text-gray-800 text-center mb-6">
+                  {tier}
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {tierSponsors.map((sponsor) => {
+                    const card = (
+                      <div className="bg-white border border-gray-100 p-6 flex flex-col items-center text-center hover:shadow-lg hover:border-gray-300 transition-all duration-300 min-h-[230px] animate-fade-in-up">
+                        <img
+                          src={sponsor.logo}
+                          alt={sponsor.name}
+                          className="w-full h-[130px] object-contain mb-4"
+                          loading="lazy"
+                        />
+                        <div className="text-base text-gray-800 font-semibold mt-auto">
+                          {sponsor.name}
+                        </div>
+                        {sponsor.divisionName ? (
+                          <div className="mt-2 text-sm text-gray-600 leading-snug">
+                            {sponsor.divisionName}
+                          </div>
+                        ) : null}
+                      </div>
+                    );
+
+                    return sponsor.website ? (
+                      <a
+                        key={sponsor.name}
+                        href={sponsor.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block"
+                        data-testid={`sponsor-card-${slugify(sponsor.name)}`}
+                      >
+                        {card}
+                      </a>
+                    ) : (
+                      <div
+                        key={sponsor.name}
+                        data-testid={`sponsor-card-${slugify(sponsor.name)}`}
+                      >
+                        {card}
+                      </div>
+                    );
+                  })}
                 </div>
-              )
-            ))}
-          </div>
-        ) : (
-          <div className="text-center text-sm text-gray-600 mb-12" data-testid="text-sponsors-empty">
-            No sponsors announced yet.
-          </div>
-        )}
+              </div>
+            );
+          })}
+        </div>
 
         <div className="text-center mt-12">
           <a

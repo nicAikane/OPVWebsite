@@ -5,13 +5,13 @@ import { siteMeta, links } from "@/lib/site";
 
 // Update head metadata at runtime from site config
 function ensureMeta(selector: string, attrs: Record<string, string>) {
-  let el = document.head.querySelector(selector) as HTMLMetaElement | null;
+  let el = document.head.querySelector(selector);
   if (!el) {
     const tag = selector.startsWith('meta[') ? 'meta' : selector.startsWith('link[') ? 'link' : 'meta';
-    el = document.createElement(tag) as any;
+    el = document.createElement(tag);
     document.head.appendChild(el);
   }
-  Object.entries(attrs).forEach(([k, v]) => el!.setAttribute(k, v));
+  Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
 }
 
 function applyHead() {

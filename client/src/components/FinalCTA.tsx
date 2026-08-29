@@ -8,7 +8,7 @@ export default function FinalCTA() {
           Support {season.name}
         </h2>
         <p className="text-base md:text-xl opacity-90 mb-8" data-testid="text-final-cta">
-          Early registration closes {season.earlyRegistrationCloses}. Your support helps OPV grow the league, welcome new players, and keep the season moving.
+          Your support helps OPV grow the league, welcome players, and keep Season 5 moving.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <a 
@@ -21,13 +21,11 @@ export default function FinalCTA() {
             Donate to OPV
           </a>
           <a 
-            href={links.teamSideline}
-            target="_blank" 
-            rel="noopener noreferrer"
+            href="#schedule"
             className="bg-white text-indigo-600 font-bold px-8 py-4 rounded-full text-lg shadow-lg hover:bg-gray-100 transition-all duration-300"
-            data-testid="button-final-photos"
+            data-testid="button-final-division-schedules"
           >
-            Register or View Updates
+            Division Schedules & Standings
           </a>
         </div>
       </div>

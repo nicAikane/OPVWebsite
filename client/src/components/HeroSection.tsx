@@ -20,48 +20,37 @@ export default function HeroSection() {
             {season.name} starts August 29, 2026
           </h1>
           <p className="text-base md:text-xl text-gray-700 mt-4 max-w-3xl mx-auto" data-testid="text-hero-subtitle">
-            Join OPV for a new season of community-led grass volleyball in Honolulu across Competitive 4v4, Intermediate 6v6, and Social 6v6 divisions.
+            Follow the Season 5 schedule, standings, and division updates for community-led grass volleyball in Honolulu.
           </p>
-          <div className="grid gap-4 md:grid-cols-4 mt-8">
-            <div className="bg-white/80 rounded-2xl p-5 border border-white/70 shadow-sm" data-testid="card-hero-reg-deadline">
-              <div className="text-xs uppercase tracking-wide text-gray-500">Early Registration</div>
-              <div className="text-base font-semibold text-gray-800 mt-1">Closes July 31</div>
-              <div className="text-sm text-gray-600 mt-1">Secure your spot before the regular pricing window begins.</div>
-            </div>
-            <div className="bg-white/80 rounded-2xl p-5 border border-white/70 shadow-sm" data-testid="card-hero-first-game">
-              <div className="text-xs uppercase tracking-wide text-gray-500">First Game</div>
-              <div className="text-base font-semibold text-gray-800 mt-1">August 29</div>
-              <div className="text-sm text-gray-600 mt-1">Season play kicks off to open the fall schedule.</div>
-            </div>
-            <div className="bg-white/80 rounded-2xl p-5 border border-white/70 shadow-sm" data-testid="card-hero-regular-price">
-              <div className="text-xs uppercase tracking-wide text-gray-500">Regular Price</div>
-              <div className="text-base font-semibold text-gray-800 mt-1">{season.regularRegistrationPrice}</div>
-              <div className="text-sm text-gray-600 mt-1">Standard registration pricing after July 31.</div>
-            </div>
-            <div className="bg-white/80 rounded-2xl p-5 border border-white/70 shadow-sm" data-testid="card-hero-late-price">
-              <div className="text-xs uppercase tracking-wide text-gray-500">Late Price</div>
-              <div className="text-base font-semibold text-gray-800 mt-1">{season.lateRegistrationPrice}</div>
-              <div className="text-sm text-gray-600 mt-1">Late registration remains available for final sign-ups.</div>
-            </div>
-          </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          <div className="grid gap-4 md:grid-cols-2 mt-8 max-w-4xl mx-auto">
+            <a
+              href="#schedule"
+              className="bg-white/85 rounded-2xl p-6 border border-white/70 shadow-sm text-left hover:shadow-md hover:border-gray-300 transition-all duration-300"
+              data-testid="card-hero-division-schedules"
+            >
+              <div className="text-xs uppercase tracking-wide text-gray-500">TeamSideline</div>
+              <div className="text-xl font-semibold text-gray-800 mt-2">Division Schedules & Standings</div>
+              <div className="text-sm text-gray-600 mt-2">Choose your division for match times, results, standings, and court assignments.</div>
+            </a>
             <a
               href={links.teamSideline}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gray-800 text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-gray-900 transition-colors duration-300"
-              data-testid="button-hero-register"
+              className="bg-white/85 rounded-2xl p-6 border border-white/70 shadow-sm text-left hover:shadow-md hover:border-gray-300 transition-all duration-300"
+              data-testid="card-hero-team-sideline"
             >
-              Captain Team Registration
+              <div className="text-xs uppercase tracking-wide text-gray-500">League Home</div>
+              <div className="text-xl font-semibold text-gray-800 mt-2">TeamSideline League Hub</div>
+              <div className="text-sm text-gray-600 mt-2">Use the league hub for team information and Season 5 communications.</div>
             </a>
+          </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
-              href={links.freeAgent}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white text-gray-800 px-8 py-4 rounded-full text-base font-semibold border border-gray-300 hover:border-gray-500 transition-colors duration-300"
-              data-testid="button-hero-free-agent"
+              href="#rules"
+              className="bg-gray-800 text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-gray-900 transition-colors duration-300"
+              data-testid="button-hero-rules"
             >
-              Free Agent Registration
+              View Rules
             </a>
             <a
               href={links.donate}
