@@ -20,16 +20,6 @@ const boardMembers = [
     photo: "/opv-logo.png",
   },
   {
-    name: "Brandon Childress",
-    title: "Director of Rules & Referees",
-    photo: "/opv-logo.png",
-  },
-  {
-    name: "Arthur Saumy",
-    title: "Director of Operations",
-    photo: "/opv-logo.png",
-  },
-  {
     name: "Jacob Hurst",
     title: "Director at Large",
     photo: "/opv-logo.png",
