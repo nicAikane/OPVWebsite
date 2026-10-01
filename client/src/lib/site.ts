@@ -29,7 +29,7 @@ export const links = {
   donate:
     "https://www.zeffy.com/en-US/donation-form/season-5-oahu-pride-volleyball-league/",
   rules6v6:
-    "https://drive.google.com/file/d/16Mp_SqQAV7-amruJKXFTEff4R0w_-luw/view?usp=drive_link",
+    "https://drive.google.com/file/d/18UypTbIKZy6GsoMWfFzPOOM0mTwRujZD/view?usp=drive_link",
   rules4v4:
     "https://docs.google.com/document/d/1GsagHqY8sy76g-_L9ZVfo8GG1F4BqN11AyyvoUw3X1o/edit",
   photos: "https://ericzmartin.smugmug.com/",
